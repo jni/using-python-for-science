@@ -1,6 +1,7 @@
 # Table of contents
 # Learn more at https://jupyterbook.org/customize/toc.html
 - file: intro
+- file: intro-to-environments
 
 # example multi-file page below
 #- file: content
