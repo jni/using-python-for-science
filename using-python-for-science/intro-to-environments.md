@@ -42,7 +42,11 @@ troubleshooting your Python installation problems. In your Python program,
 whether that program is commands entered into the Python prompt, a .py file, or
 a Jupyter notebook, type:
 
-```python import sys print(sys.executable) print(sys.path) ```
+```python
+import sys
+print(sys.executable)
+print(sys.path)
+```
 
 The first print function call prints the location of the *interpreter* running
 your code --- in the email analogy, this is the same as the email program with
@@ -96,7 +100,9 @@ chapter.
 If you've correctly installed miniconda, you shoud be able to launch a terminal
 and type:
 
-``` conda --help ```
+```
+conda --help
+```
 
 and get a message about conda usage.
 
@@ -118,7 +124,9 @@ itself, using `conda update --name base conda`.
 Ok, with that out of the way, let's create our first conda environment. We do
 this with the `conda create` command. Let's make a Python 3.9 environment:
 
-``` conda create -n py39 python=3.9 ```
+```
+conda create -n py39 python=3.9
+```
 
 Once that's done, you can *activate* the environment, which means setting that
 specific installation of Python as the one that commands will use. This setting
@@ -126,7 +134,9 @@ will be active for that specific terminal session until it's closed or you
 `conda deactivate`, or you `conda activate` a different environment. Do this
 with:
 
-``` conda activate py39 ```
+```
+conda activate py39
+```
 
 !! Note: if the above command fails with an error message similar to "conda
 command not found", you need to set up your terminal to correctly find conda.
@@ -138,11 +148,16 @@ You now have at least two environments: Your base environment, and the py39
 environment. Try to get comfortable with switching between them, and
 understanding how they cause you to invoke different versions of Python:
 
-``` conda deactivate which python  # or "where python" in some Windows shells
-python -c "import sys; print(sys.executable)" conda activate py39 which python
-python -c "import sys; print(sys.executable)" which pip pip install numpy
-python -c "import numpy; print(numpy)" conda deactivate python -c "import
-numpy; print(numpy)" ```
+```
+conda deactivate which python  # or "where python" in some Windows shells
+python -c "import sys; print(sys.executable)"
+conda activate py39 which python
+python -c "import sys; print(sys.executable)"
+which pip pip install numpy
+python -c "import numpy; print(numpy)"
+conda deactivate
+python -c "import numpy; print(numpy)"
+```
 
 The last command should crash with an import error, because we have not
 installed NumPy in the base environment, only in the py39 environment.
@@ -153,8 +168,12 @@ and you can run Python programs that use NumPy within it.
 Now, let's try to create some other environments, and run Python in different
 ways. Try the following commands:
 
-``` conda create -y -n jupy38 python=3.8 conda activate jupy38 pip install
-jupyter notebook jupyter notebook ```
+```
+conda create -y -n jupy38 python=3.8
+conda activate jupy38
+pip install jupyter notebook
+jupyter notebook
+```
 
 The last command should open a browser to the launch page of jupyter notebook. 
 
@@ -163,7 +182,11 @@ The last command should open a browser to the launch page of jupyter notebook.
 Try creating a new notebook. Will you be able to import numpy within it? If you
 type the following code into a cell and run it, what is the output?
 
-```python import sys print(sys.version_info()) print(sys.executable) ```
+```python
+import sys
+print(sys.version_info())
+print(sys.executable)
+```
 
 ### Working with IDEs
 
@@ -192,7 +215,9 @@ exercise.
 
 Now, create a new file in your project, and start with:
 
-```python import numpy as np ```
+```python
+import numpy as np
+```
 
 VSCode should complain that you do not have pylint installed. pylint is a
 linter, which is a computer program that analyses other computer programs to
@@ -238,21 +263,30 @@ installed.
 This works to our advantage. When an environment breaks, and we can't readily
 fix it, just nuke it and start again! Let's try this out:
 
-```python conda create -y -n borked python=3.7 conda activate borked pip
-install scikit-image==0.14 ```
+```
+conda create -y -n borked python=3.7
+conda activate borked
+pip install scikit-image==0.14
+```
 
 Now, check that this works:
 
-```python python -c "from skimage import util" ```
+```
+python -c "from skimage import util"
+```
 
 Now, suppose you start working on a new project that requires scikit-learn.
 Let's try it:
 
-```python pip install scikit-learn ```
+```
+pip install scikit-learn
+```
 
 Notice how it upgraded NumPy, but not scikit-image. Now, we try the same code:
 
-```python python -c "from skimage import util" ```
+```
+python -c "from skimage import util"
+```
 
 Boom. Our environment broke. Now, in this very specific case, upgrading
 scikit-image would fix things. But things aren't always that easy, or obvious.
