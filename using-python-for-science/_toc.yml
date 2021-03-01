@@ -1,7 +1,36 @@
 # Table of contents
 # Learn more at https://jupyterbook.org/customize/toc.html
 - file: book-intro
+- file: terminals-and-shells
 - file: intro-to-environments
+- file: editors-and-ides
+- file: essential-libraries-for-science
+  sections:
+    - file: numpy
+    - file: matplotlib
+    - file: pandas
+- file: get-it-working
+  sections:
+    - file: understanding-tracebacks
+    - file: debugging
+- file: get-it-right
+  sections:
+    - file: testing
+    - file: continuous-integration
+    - file: reproducibility
+- file: get-it-fast
+  sections:
+    - file: profiling
+    - file: cython
+    - file: parallel-python
+    - file: numba
+    - file: gpu-libraries
+- file: ship-it
+  sections:
+    - file: packaging-for-pip
+    - file: packaging-for-conda
+
+- file: epilogue
 
 # example multi-file page below
 #- file: content
