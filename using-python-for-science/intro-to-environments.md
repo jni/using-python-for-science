@@ -4,7 +4,7 @@ Installing Python is the single most important thing about learning Python.
 Yet, it is also one of the most complicated. There's nothing too intrinsically
 difficult here; it's just that there's tons of options, they are all evolving,
 and they can interfere with each other in weird ways. This guide is somewhat
-opinionated, and will only cover one Python installation in detail (miniconda).
+opinionated, and will only cover one Python installation in detail (miniforge).
 We will, however, try to describe the *principles* involved, so that you can
 diagnose issues with other Python installations, and understand when things go
 wrong.
