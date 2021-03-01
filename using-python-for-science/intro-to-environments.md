@@ -67,7 +67,7 @@ different versions of Python and different Python environments within your
 machine. When in doubt, don't panic and print `sys.executable`! Now that you
 have a compass, though, let's see how you can create and navigate environments.
 Once you can create, modify, and destroy environments at will, you'll be able
-to marshall the entire Scientific Python ecosystem at will!
+to marshall the entire Scientific Python ecosystem!
 
 In Python, there are two main tools to manage environments: virtualenv, and
 conda. Various other tools, such as pipenv and mamba, give you options to
@@ -97,8 +97,8 @@ system. On Mac and Linux, you will have an application called Terminal. (Though
 on Mac we recommend you download and install the excellent **iTerm**, which
 fulfills the same function, but better.) On Windows, the picture is more
 complicated, so much so that we have given it its own chapter. See "Navigating
-Windows Terminals" for details. We recommend using Anaconda Prompt in this
-chapter.
+Windows Terminals" for details [**Editorial note:** this chapter has not yet
+been written.]. We recommend using Anaconda Prompt in this chapter.
 
 If you've correctly installed miniconda, you shoud be able to launch a terminal
 and type:
@@ -119,7 +119,7 @@ havoc with it.
 I instead recommend that you treat this environment as untouchable, and always
 work in other environments. To reiterate: **never install packages into the
 base conda environment!** All other environments are disposable, but the base
-one is much harder to replace, so you should **only** change it to update conda
+one is harder to replace, so you should **only** change it to update conda
 itself, using `conda update --name base conda`.
 
 ### Your first environment
@@ -132,31 +132,37 @@ conda create -n py39 python=3.9
 ```
 
 Once that's done, you can *activate* the environment, which means setting that
-specific installation of Python as the one that commands will use. This setting
-will be active for that specific terminal session until it's closed or you
-`conda deactivate`, or you `conda activate` a different environment. Do this
-with:
+specific installation of Python as the one that subsequent commands will use.
+This setting will be active for that specific terminal session until it's
+closed or you `conda deactivate`, or you `conda activate` a different
+environment. Do this with:
 
 ```
 conda activate py39
 ```
 
-!! Note: if the above command fails with an error message similar to "conda
+```{note}
+if the above command fails with an error message similar to "conda
 command not found", you need to set up your terminal to correctly find conda.
 See the "terminals and shells" chapter for more.
+```
 
 ### Exercise: switching environments
 
 You now have at least two environments: Your base environment, and the py39
 environment. Try to get comfortable with switching between them, and
-understanding how they cause you to invoke different versions of Python:
+understanding how they cause you to invoke different versions of Python. Try
+typing in the following commands one by one:
 
 ```
-conda deactivate which python  # or "where python" in some Windows shells
+conda deactivate
+which python  # or "where python" in some Windows shells
 python -c "import sys; print(sys.executable)"
-conda activate py39 which python
+conda activate py39
+which python
 python -c "import sys; print(sys.executable)"
-which pip pip install numpy
+which pip
+pip install numpy
 python -c "import numpy; print(numpy)"
 conda deactivate
 python -c "import numpy; print(numpy)"
@@ -178,9 +184,9 @@ pip install jupyter notebook
 jupyter notebook
 ```
 
-The last command should open a browser to the launch page of jupyter notebook.
+The last command should open a browser to the launch page of Jupyter Notebook.
 
-(screenshot)
+[**Editorial note:** insert screenshot]
 
 Try creating a new notebook. Will you be able to import numpy within it? If you
 type the following code into a cell and run it, what is the output?
@@ -191,7 +197,7 @@ print(sys.version_info())
 print(sys.executable)
 ```
 
-### Working with IDEs
+## Working with IDEs
 
 Integrated Development Environments, or IDEs, are text editors that come with
 aditional features to help you quickly evaluate and run your code. Examples of
@@ -201,7 +207,7 @@ In order to help you run your code, IDEs must use a Python executable. But
 we've just seen that you can have many executables on your computer, and that
 they won't all have the same libraries and features installed. In fact, without
 knowing which Python executable you are working with, the IDEs can't tell you
-whether your code is correct, since different Python versions have different
+whether your code is correct, because different Python versions have different
 features. The code `print(f'{5+8}')` is valid in Python 3.6 or later, but won't
 work in Python 3.5 or earlier.
 
@@ -211,6 +217,9 @@ purpose of this section is just to tell you about it, so you can code more
 effectively with IDEs!
 
 ### Exercise: using the correct interpreter
+
+Download and install Visual Studio Code, an open source IDE, and install the
+Python extension. (It will recommend it to you on first launch.)
 
 Start a new project with Visual Studio Code. Go to the settings, and set the
 interpreter to be the Python returned by `sys.executable` in the jupyter
@@ -223,10 +232,10 @@ import numpy as np
 ```
 
 VSCode should complain that you do not have pylint installed. pylint is a
-linter, which is a computer program that analyses other computer programs to
+linter, a computer program that analyses other computer programs to
 check them for errors. When you ask VSCode to install it, it will then
 highlight the `import numpy` line, because we did not install NumPy in the
-jupy38 environment! This is the power of linters: They can tell us our prgorams
+jupy38 environment! This is the power of linters: They can tell us our programs
 are wrong even befdore we run them. Working with a linter can make you much
 more productive.
 
@@ -238,7 +247,7 @@ then need to install pylint again.) We leave the choice to you.
 ### The nuclear option
 
 We warned earlier that it's dangerous to install packages to your system
-Python. Why wouldn't  it be dangerous in an environment? The answer is, it is,
+Python. Why wouldn't it be dangerous in an environment? The answer is, it is,
 but environments are *disposable*, and you should see them as such. Once you
 do, dealing with environments becomes very freeing, as opposed to another
 complicated step to get Python to work.
@@ -247,9 +256,9 @@ Installing new libraries to an environment can often lead to strange failures,
 because libraries often depend on other libraries in version-specific ways, and
 they don't always correctly declare this version specificity. For example,
 scikit-image 0.14 depended on NumPy 1.10 and higher, but when NumPy 1.15 was
-release, it inadvertently broke some functionality in scikit-image. Therefore,
+released, it inadvertently broke some functionality in scikit-image. Therefore,
 if you installed scikit-image to an environment before NumPy 1.15 was released,
-and then subsequently updated the NumPy version to 1.15, you would have ended
+and then subsequently updated NumPy, you would have ended
 up with a broken environment for image analysis. Even if you don't consciously
 update packages, you might decide to install some other package that depends on
 NumPy 1.15 or higher. Since scikit-image did not know ahead of time that a
@@ -269,7 +278,7 @@ fix it, just nuke it and start again! Let's try this out:
 ```
 conda create -y -n borked python=3.7
 conda activate borked
-pip install scikit-image==0.14
+pip install scikit-image==0.14.0 numpy==1.14.3
 ```
 
 Now, check that this works:
@@ -293,7 +302,7 @@ python -c "from skimage import util"
 
 Boom. Our environment broke. Now, in this very specific case, upgrading
 scikit-image would fix things. But things aren't always that easy, or obvious.
-So, an easy way is to proceed is to start again!
+So, an easy way to proceed is to start again!
 
 ### Exercise: nuke, rinse, repeat
 
@@ -312,7 +321,7 @@ remember the nuclear option, and try again! As a final exercise, why don't you
 try:
 
 - remove all your conda environments, and try to repeat this whole chapter
-  using micromamba, a from-scratch implementation of miniconda.
+  using mambaforge, a from-scratch implementation of miniforge.
 - replace all the pip install commands with mamba install commands
 - repeat the chapter using Python.org to download Python, and virtualenv to
   create environments
@@ -321,5 +330,5 @@ try:
 
 Once you have messed with environments enough times, all of this becomes easier
 to deal with. And remember: even the experts regularly end up with broken
-envornemnts and have to start from scratch! If your environment is broken,
+environments and have to start from scratch! If your environment is broken,
 don't panic, conda env remove, and carry on!
