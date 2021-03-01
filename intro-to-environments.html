@@ -1,0 +1,578 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to Python environments &#8212; Using Python for Science</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to Using Python for Science" href="book-intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Using Python for Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="book-intro.html">
+   Welcome to Using Python for Science
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction to Python environments
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/intro-to-environments.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-are-there-lots-of-ways-to-get-python">
+   Why are there lots of ways to get Python?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#managing-environments">
+   Managing environments
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-prime-directive-of-conda-environments">
+     The Prime Directive of conda environments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-first-environment">
+     Your first environment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-switching-environments">
+     Exercise: switching environments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-with-ides">
+   Working with IDEs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-using-the-correct-interpreter">
+     Exercise: using the correct interpreter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-nuclear-option">
+     The nuclear option
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-nuke-rinse-repeat">
+     Exercise: nuke, rinse, repeat
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction-to-python-environments">
+<h1>Introduction to Python environments<a class="headerlink" href="#introduction-to-python-environments" title="Permalink to this headline">¶</a></h1>
+<p>Installing Python is the single most important thing about learning Python.
+Yet, it is also one of the most complicated. There’s nothing too intrinsically
+difficult here; it’s just that there’s tons of options, they are all evolving,
+and they can interfere with each other in weird ways. This guide is somewhat
+opinionated, and will only cover one Python installation in detail (miniforge).
+We will, however, try to describe the <em>principles</em> involved, so that you can
+diagnose issues with other Python installations, and understand when things go
+wrong.</p>
+<div class="section" id="why-are-there-lots-of-ways-to-get-python">
+<h2>Why are there lots of ways to get Python?<a class="headerlink" href="#why-are-there-lots-of-ways-to-get-python" title="Permalink to this headline">¶</a></h2>
+<p>A lot of newcomers are confused when starting out with Python, because there
+isn’t <em>just</em> Python — there’s Anaconda, miniconda, Python(x,y), <a class="reference external" href="http://Python.org">Python.org</a>
+— nowadays you can even get Python from the Windows App Store!</p>
+<p>Plus, on most Linux distributions, there is a python command built-in. Is that
+all you need?</p>
+<p>All of this happens because of Python’s great strength: it’s open source. This
+means that anyone can package their own Python and distribute it as an app, as
+long as they think they can do it better, in some way, than what’s out there.
+(And even if they don’t! You can distribute your own version of Python just for
+fun!)</p>
+<p>Let’s untangle it all.</p>
+<p>It’s best to think of Python not as a program, but as <em>email</em>. Just like you
+can send and receive email using a variety of programs, such as Gmail, Outlook,
+or Apple Mail, so too can all these different versions of Python run Python
+programs — but each with different features, advantages, disadvantages.</p>
+<p>And, just like you can have many different email programs installed on your
+phone or on your computer, so too can you have lots of different Python
+versions on your computer. Probably 95% of installation problems we help people
+with have to do with people not knowing which Python they are using out of the
+multiple versions on their computer.</p>
+<p>To this end, here we show you the single most important diagnostic when
+troubleshooting your Python installation problems. In your Python program,
+whether that program is commands entered into the Python prompt, a .py file, or
+a Jupyter notebook, type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The first print function call prints the location of the <em>interpreter</em> running
+your code — in the email analogy, this is the same as the email program with
+which you are reading or sending email. Most usually, when you install a Python
+package but can’t access it, it’s because you installed it for a different
+Python interpreter.</p>
+<p>Similarly, <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> tells you the folders within your computer where Python
+is looking for programs or libraries to import. If you install a library with
+conda or pip, it <em>will</em> end up in one of these folders. If it’s not there, or
+it’s a different version from the one you expect, it usually means, again, that
+you’ve installed it into a different environment.</p>
+</div>
+<div class="section" id="managing-environments">
+<h2>Managing environments<a class="headerlink" href="#managing-environments" title="Permalink to this headline">¶</a></h2>
+<p>Hopefully, the above ideas are enough to keep you oriented in the face of
+different versions of Python and different Python environments within your
+machine. When in doubt, don’t panic and print <code class="docutils literal notranslate"><span class="pre">sys.executable</span></code>! Now that you
+have a compass, though, let’s see how you can create and navigate environments.
+Once you can create, modify, and destroy environments at will, you’ll be able
+to marshall the entire Scientific Python ecosystem!</p>
+<p>In Python, there are two main tools to manage environments: virtualenv, and
+conda. Various other tools, such as pipenv and mamba, give you options to
+manipulate either of those two types of environments. The concepts for all
+these tools are the same, so we will focus on conda and leave you, brave
+reader, to figure out the other tools when necessary, armed with the concepts
+from this chapter. Indeed, a good exercise when you are done with this chapter
+is to uninstall everything, then start from scratch with mamba.</p>
+<p>The first thing to do is to get conda. Confusingly, even now we have choices to
+make: we can either install miniconda or Anaconda. Miniconda is <em>just</em> conda,
+and what we will install going forward. Anaconda includes miniconda <em>as well
+as</em> a whole bunch of Scientific Python packages hand-compiled by the engineers
+at Anaconda, Inc, all neatly bundled into a single, massive environment.
+Although this can be convenient, in our case we want to create, modify, and
+destroy environments at will, so we will skip the One Huge Environment To Rule
+Them All.</p>
+<p>In fact, we will not download miniconda itself, but rather <em>miniforge</em>, a fork
+of miniconda that uses <em>conda-forge</em> as the default location to search for
+packages to install. As of this writing, you can download miniforge at
+<a class="reference external" href="https://github.com/conda-forge/miniforge#download">https://github.com/conda-forge/miniforge#download</a>, but if that changes, simply
+search the web for “download miniforge”. Follow the installation instructions
+on the site, and launch a command line terminal. This will be different
+depending on your operating
+system. On Mac and Linux, you will have an application called Terminal. (Though
+on Mac we recommend you download and install the excellent <strong>iTerm</strong>, which
+fulfills the same function, but better.) On Windows, the picture is more
+complicated, so much so that we have given it its own chapter. See “Navigating
+Windows Terminals” for details [<strong>Editorial note:</strong> this chapter has not yet
+been written.]. We recommend using Anaconda Prompt in this chapter.</p>
+<p>If you’ve correctly installed miniconda, you shoud be able to launch a terminal
+and type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+<p>and get a message about conda usage.</p>
+<div class="section" id="the-prime-directive-of-conda-environments">
+<h3>The Prime Directive of conda environments<a class="headerlink" href="#the-prime-directive-of-conda-environments" title="Permalink to this headline">¶</a></h3>
+<p>In a rather meta turn, conda itself lives in its own little conda environment,
+called <code class="docutils literal notranslate"><span class="pre">base</span></code>. In what I consider to be a grave mistake, conda allows you to
+install other packages into this environment, and generally wreak all sorts of
+havoc with it.</p>
+<p>I instead recommend that you treat this environment as untouchable, and always
+work in other environments. To reiterate: <strong>never install packages into the
+base conda environment!</strong> All other environments are disposable, but the base
+one is harder to replace, so you should <strong>only</strong> change it to update conda
+itself, using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">--name</span> <span class="pre">base</span> <span class="pre">conda</span></code>.</p>
+</div>
+<div class="section" id="your-first-environment">
+<h3>Your first environment<a class="headerlink" href="#your-first-environment" title="Permalink to this headline">¶</a></h3>
+<p>Ok, with that out of the way, let’s create our first conda environment. We do
+this with the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code> command. Let’s make a Python 3.9 environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">py39</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.9</span>
+</pre></div>
+</div>
+<p>Once that’s done, you can <em>activate</em> the environment, which means setting that
+specific installation of Python as the one that subsequent commands will use.
+This setting will be active for that specific terminal session until it’s
+closed or you <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code>, or you <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code> a different
+environment. Do this with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">py39</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>if the above command fails with an error message similar to “conda
+command not found”, you need to set up your terminal to correctly find conda.
+See the “terminals and shells” chapter for more.</p>
+</div>
+</div>
+<div class="section" id="exercise-switching-environments">
+<h3>Exercise: switching environments<a class="headerlink" href="#exercise-switching-environments" title="Permalink to this headline">¶</a></h3>
+<p>You now have at least two environments: Your base environment, and the py39
+environment. Try to get comfortable with switching between them, and
+understanding how they cause you to invoke different versions of Python. Try
+typing in the following commands one by one:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">deactivate</span>
+<span class="n">which</span> <span class="n">python</span>  <span class="c1"># or &quot;where python&quot; in some Windows shells</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import sys; print(sys.executable)&quot;</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">py39</span>
+<span class="n">which</span> <span class="n">python</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import sys; print(sys.executable)&quot;</span>
+<span class="n">which</span> <span class="n">pip</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import numpy; print(numpy)&quot;</span>
+<span class="n">conda</span> <span class="n">deactivate</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import numpy; print(numpy)&quot;</span>
+</pre></div>
+</div>
+<p>The last command should crash with an import error, because we have not
+installed NumPy in the base environment, only in the py39 environment.</p>
+<p>You now have a Python 3.9 environment, and you have NumPy installed within it,
+and you can run Python programs that use NumPy within it.</p>
+<p>Now, let’s try to create some other environments, and run Python in different
+ways. Try the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">y</span> <span class="o">-</span><span class="n">n</span> <span class="n">jupy38</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.8</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">jupy38</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">jupyter</span> <span class="n">notebook</span>
+<span class="n">jupyter</span> <span class="n">notebook</span>
+</pre></div>
+</div>
+<p>The last command should open a browser to the launch page of Jupyter Notebook.</p>
+<p>[<strong>Editorial note:</strong> insert screenshot]</p>
+<p>Try creating a new notebook. Will you be able to import numpy within it? If you
+type the following code into a cell and run it, what is the output?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="working-with-ides">
+<h2>Working with IDEs<a class="headerlink" href="#working-with-ides" title="Permalink to this headline">¶</a></h2>
+<p>Integrated Development Environments, or IDEs, are text editors that come with
+aditional features to help you quickly evaluate and run your code. Examples of
+IDEs include Visual Studio Code, PyCharm, and Spyder.</p>
+<p>In order to help you run your code, IDEs must use a Python executable. But
+we’ve just seen that you can have many executables on your computer, and that
+they won’t all have the same libraries and features installed. In fact, without
+knowing which Python executable you are working with, the IDEs can’t tell you
+whether your code is correct, because different Python versions have different
+features. The code <code class="docutils literal notranslate"><span class="pre">print(f'{5+8}')</span></code> is valid in Python 3.6 or later, but won’t
+work in Python 3.5 or earlier.</p>
+<p>The solution, as you might expect, is to tell the IDE which actual Python
+interpreter you want to work with. All IDEs have a facility to do this. The
+purpose of this section is just to tell you about it, so you can code more
+effectively with IDEs!</p>
+<div class="section" id="exercise-using-the-correct-interpreter">
+<h3>Exercise: using the correct interpreter<a class="headerlink" href="#exercise-using-the-correct-interpreter" title="Permalink to this headline">¶</a></h3>
+<p>Download and install Visual Studio Code, an open source IDE, and install the
+Python extension. (It will recommend it to you on first launch.)</p>
+<p>Start a new project with Visual Studio Code. Go to the settings, and set the
+interpreter to be the Python returned by <code class="docutils literal notranslate"><span class="pre">sys.executable</span></code> in the jupyter
+exercise.</p>
+<p>Now, create a new file in your project, and start with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+<p>VSCode should complain that you do not have pylint installed. pylint is a
+linter, a computer program that analyses other computer programs to
+check them for errors. When you ask VSCode to install it, it will then
+highlight the <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span></code> line, because we did not install NumPy in the
+jupy38 environment! This is the power of linters: They can tell us our programs
+are wrong even befdore we run them. Working with a linter can make you much
+more productive.</p>
+<p>At this point, we have two options: we can either install NumPy in the jupy38
+environment (and indeed VSCode will suggest this), or we can change the
+interpreter to the py39 environment, which does have NumPy. (Though we will
+then need to install pylint again.) We leave the choice to you.</p>
+</div>
+<div class="section" id="the-nuclear-option">
+<h3>The nuclear option<a class="headerlink" href="#the-nuclear-option" title="Permalink to this headline">¶</a></h3>
+<p>We warned earlier that it’s dangerous to install packages to your system
+Python. Why wouldn’t it be dangerous in an environment? The answer is, it is,
+but environments are <em>disposable</em>, and you should see them as such. Once you
+do, dealing with environments becomes very freeing, as opposed to another
+complicated step to get Python to work.</p>
+<p>Installing new libraries to an environment can often lead to strange failures,
+because libraries often depend on other libraries in version-specific ways, and
+they don’t always correctly declare this version specificity. For example,
+scikit-image 0.14 depended on NumPy 1.10 and higher, but when NumPy 1.15 was
+released, it inadvertently broke some functionality in scikit-image. Therefore,
+if you installed scikit-image to an environment before NumPy 1.15 was released,
+and then subsequently updated NumPy, you would have ended
+up with a broken environment for image analysis. Even if you don’t consciously
+update packages, you might decide to install some other package that depends on
+NumPy 1.15 or higher. Since scikit-image did not know ahead of time that a
+later NumPy release would break it (though in this particular instance they
+should have, because they were using a private NumPy function), there was
+nothing to prevent this from happening — package dependency metadata is fixed
+at release time.</p>
+<p>Sometimes, these failures are easy to detect and fix. Sometimes, it is very
+difficult or impossible. In many cases, the failures are caused by a strange
+convergence of events, caused by the exact order and versions of packages
+installed.</p>
+<p>This works to our advantage. When an environment breaks, and we can’t readily
+fix it, just nuke it and start again! Let’s try this out:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">y</span> <span class="o">-</span><span class="n">n</span> <span class="n">borked</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.7</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">borked</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">scikit</span><span class="o">-</span><span class="n">image</span><span class="o">==</span><span class="mf">0.14</span><span class="o">.</span><span class="mi">0</span> <span class="n">numpy</span><span class="o">==</span><span class="mf">1.14</span><span class="o">.</span><span class="mi">3</span>
+</pre></div>
+</div>
+<p>Now, check that this works:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;from skimage import util&quot;</span>
+</pre></div>
+</div>
+<p>Now, suppose you start working on a new project that requires scikit-learn.
+Let’s try it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span>
+</pre></div>
+</div>
+<p>Notice how it upgraded NumPy, but not scikit-image. Now, we try the same code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;from skimage import util&quot;</span>
+</pre></div>
+</div>
+<p>Boom. Our environment broke. Now, in this very specific case, upgrading
+scikit-image would fix things. But things aren’t always that easy, or obvious.
+So, an easy way to proceed is to start again!</p>
+</div>
+<div class="section" id="exercise-nuke-rinse-repeat">
+<h3>Exercise: nuke, rinse, repeat<a class="headerlink" href="#exercise-nuke-rinse-repeat" title="Permalink to this headline">¶</a></h3>
+<p>Delete the <code class="docutils literal notranslate"><span class="pre">borked</span></code> environment, and create a new one with current versions of
+NumPy, scikit-learn, and scikit-image.</p>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>That’s it! We hope this chapter has made you a bit more confident to try out
+different versions of Python, different library versions, everything! The
+fastest way to learn is to try lots of things, so by making it easier for you
+to try things, environments are a key to help you learn Python quickly.</p>
+<p>If you’ve gone through this whole chapter and are still feeling tentative,
+remember the nuclear option, and try again! As a final exercise, why don’t you
+try:</p>
+<ul class="simple">
+<li><p>remove all your conda environments, and try to repeat this whole chapter
+using mambaforge, a from-scratch implementation of miniforge.</p></li>
+<li><p>replace all the pip install commands with mamba install commands</p></li>
+<li><p>repeat the chapter using <a class="reference external" href="http://Python.org">Python.org</a> to download Python, and virtualenv to
+create environments</p></li>
+<li><p>if you have access to another computer, try everything again on that other
+computer.</p></li>
+</ul>
+<p>Once you have messed with environments enough times, all of this becomes easier
+to deal with. And remember: even the experts regularly end up with broken
+environments and have to start from scratch! If your environment is broken,
+don’t panic, conda env remove, and carry on!</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="book-intro.html" title="previous page">Welcome to Using Python for Science</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Juan Nunez-Iglesias & Nelle Varoquaux<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
