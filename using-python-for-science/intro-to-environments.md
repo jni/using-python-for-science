@@ -9,7 +9,7 @@ We will, however, try to describe the *principles* involved, so that you can
 diagnose issues with other Python installations, and understand when things go
 wrong.
 
-# Why are there lots of ways to get Python?
+## Why are there lots of ways to get Python?
 
 A lot of newcomers are confused when starting out with Python, because there
 isn't *just* Python --- there's Anaconda, miniconda, Python(x,y), Python.org
@@ -60,7 +60,7 @@ conda or pip, it *will* end up in one of these folders. If it's not there, or
 it's a different version from the one you expect, it usually means, again, that
 you've installed it into a different environment.
 
-# Managing environments
+## Managing environments
 
 Hopefully, the above ideas are enough to keep you oriented in the face of
 different versions of Python and different Python environments within your
@@ -109,7 +109,7 @@ conda --help
 
 and get a message about conda usage.
 
-## The Prime Directive of conda environments
+### The Prime Directive of conda environments
 
 In a rather meta turn, conda itself lives in its own little conda environment,
 called `base`. In what I consider to be a grave mistake, conda allows you to
@@ -122,7 +122,7 @@ base conda environment!** All other environments are disposable, but the base
 one is much harder to replace, so you should **only** change it to update conda
 itself, using `conda update --name base conda`.
 
-## Your first environment
+### Your first environment
 
 Ok, with that out of the way, let's create our first conda environment. We do
 this with the `conda create` command. Let's make a Python 3.9 environment:
@@ -178,7 +178,7 @@ pip install jupyter notebook
 jupyter notebook
 ```
 
-The last command should open a browser to the launch page of jupyter notebook. 
+The last command should open a browser to the launch page of jupyter notebook.
 
 (screenshot)
 
@@ -235,7 +235,7 @@ environment (and indeed VSCode will suggest this), or we can change the
 interpreter to the py39 environment, which does have NumPy. (Though we will
 then need to install pylint again.) We leave the choice to you.
 
-## The nuclear option
+### The nuclear option
 
 We warned earlier that it's dangerous to install packages to your system
 Python. Why wouldn't  it be dangerous in an environment? The answer is, it is,
