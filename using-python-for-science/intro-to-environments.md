@@ -86,10 +86,13 @@ Although this can be convenient, in our case we want to create, modify, and
 destroy environments at will, so we will skip the One Huge Environment To Rule
 Them All.
 
-As of this writing, you can download miniconda at
-https://anaconda.org/miniconda, but if that changes, simply search the web for
-"download conda". Follow the installation instructions on the site, and launch
-a command line terminal. This will be different depending on your operating
+In fact, we will not download miniconda itself, but rather *miniforge*, a fork
+of miniconda that uses *conda-forge* as the default location to search for
+packages to install. As of this writing, you can download miniforge at
+https://github.com/conda-forge/miniforge#download, but if that changes, simply
+search the web for "download miniforge". Follow the installation instructions
+on the site, and launch a command line terminal. This will be different
+depending on your operating
 system. On Mac and Linux, you will have an application called Terminal. (Though
 on Mac we recommend you download and install the excellent **iTerm**, which
 fulfills the same function, but better.) On Windows, the picture is more
