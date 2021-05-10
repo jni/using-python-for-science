@@ -9,7 +9,7 @@ not teach how _how_ to use those libraries, but we only provide a short
 introduction of what those libraries _do_.
 
 We have divided the list of libraries into 5 categories: (1) core libraries,
-libraries that you cannot code for science without; (2) libraries and tools
+ie libraries that you cannot code for science without; (2) libraries and tools
 you cannot (or should not) work without; (3) visualizationg & plotting
 libraries; (4) things that will help you speed up your code; (5) domain
 specific libraries.
@@ -33,15 +33,50 @@ from scipy import XXX
   on how to use `numpy` (see XXX for details [**Editorial note:** this chapter
   has not yet been written])! 
 
-- **`scipy`**
+- **`scipy`** is the core toolbox for scientific and technical computing for
+  Python. It contains many submodules, some related to complex data structures
+  (for sparse matrices for example) or operations on `ndarray` (linear
+  algebra, fourier transforms, IO), others domain specific (signal processing,
+  image processing, clustering). View `scipy` as the Swiss army knife of
+  scientific computing in Python.
+
+- **`pandas`** is a software library for the manipulation of data frames (2D
+  arrays, with homogeously typed columns and fast indexing capabilities). If
+  you need an Excel equivalent in Python, use `pandas`. Similarly as `numpy`,
+  `pandas` provides fast and easy operations on dataframes, such as pivoting,
+  merging, joining, data filtration, column-wise operations. We also have a
+  full chapter on how to use `pandas` (see XXX for details [**Editorial
+  note:** this chapter has not yet been written])!
+
+## "Things you cannot work without"
+
+- ipython
+- FIXME debuggers
+- flake8
+- pylint
 
 
-## "Things you cannot work without": ipython, linters, debuggers
+## Visualization libraries
 
+- matplotlib
+- seaborn
+- bokeh
+- plotly
+- Jake's thing
 
-## Visualization libraries: matplotlib, seaborn, bokeh, plotly
+## Speed ups
 
-## Speed ups: cython, numba
+- profilers
+- cython
+- numba
+- joblib
+- dask
 
-## Domain specific: scikit-learn, statsmodel, scikit-image, networkx
+## Domain specific
+
+- statsmodel
+- scikit-learn
+- scikit-image
+- networkx
+- biopython
 
