@@ -2,33 +2,65 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 - file: book-intro
 - file: terminals-and-shells
+    # Total time: 15 minutes
+    # About bash
+    # Running python
+    # Running ipython
 - file: intro-to-environments
+    # total time 15 minutes
 - file: editors-and-ides
+    # Total time: 15 minutes
 - file: essential-libraries-for-science
+    # Total time: 20 minutes split into sections
+    #
+    # Core libraries: numpy, pandas, scipy
+    # Speed ups: cython, numba
+    # Visualization libraries: matplotlib, seaborn, bokeh, plotly
+    # Domain specific: scikit-learn, statsmodel, scikit-image, networkx
+    # "Things you cannot work without": ipython, linters, debuggers
   sections:
     - file: numpy
+        # Total time: 4 x 15 minutes?
+        # What's a numpy array?
+        # Adanced operations
+        # Fancy indexing
     - file: matplotlib
+        # Total time: 15 minutes
+        # All the time in the world is not enough to explain matplotlib…
     - file: pandas
+        # Total time: 3 x 15 minutes? 
 - file: get-it-working
   sections:
     - file: understanding-tracebacks
+        # 10 minutes?
     - file: debugging
+        # 15 minutes?
 - file: get-it-right
+    # I feel it's hard to do testing before packaging
   sections:
     - file: testing
+        # 15 minutes?
     - file: continuous-integration
+        # 15 minutes?
     - file: reproducibility
+        # 15 minutes
 - file: get-it-fast
   sections:
     - file: profiling
+        # 3 x 5 minutes
     - file: cython
+        # 15 minutes
     - file: parallel-python
+        # 2 x 15 minutes? (But how to split it?)
     - file: numba
+        # 5 minutes
     - file: gpu-libraries
 - file: ship-it
   sections:
     - file: packaging-for-pip
+        # Total time: 15 minutes
     - file: packaging-for-conda
+        # No clue, never done that…
 
 - file: epilogue
 
