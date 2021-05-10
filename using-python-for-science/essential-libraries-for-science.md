@@ -48,12 +48,23 @@ from scipy import XXX
   full chapter on how to use `pandas` (see XXX for details [**Editorial
   note:** this chapter has not yet been written])!
 
-## "Things you cannot work without"
+## "Things you cannot (or should not) work without"
 
-- ipython
-- FIXME debuggers
-- flake8
-- pylint
+- A good text editor or an IDE (See XXX for details [**Editorial
+  note:** this chapter has not yet been written])!
+
+- `ipython` is a command shell for Python. Think `python`, but a hundred times
+  better! It has syntax highlighting, auto-completion, and many magic
+  functions (`%debug`, `%run`, etc) to ease the process of programming and
+  debugging.
+
+- `pdb`, `ipdb`, `pdb++` are three python debuggers. Knowing how to use a
+  Python debugger is a must! **FIXME Do we have a course on this?**
+
+- Whether you use an IDE or a text editor, configure it with a static linter
+  to check your code as you write it. There are different options available. A
+  widely used static linter is `flake8`: it combines three tools into one
+  (`pyflakes`, `pycodestyle`, and `mccabe`). Another popular one is `pylint`.
 
 
 ## Visualization libraries
