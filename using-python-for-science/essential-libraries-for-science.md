@@ -59,7 +59,10 @@ from scipy import XXX
   debugging.
 
 - `pdb`, `ipdb`, `pdb++` are three python debuggers. Knowing how to use a
-  Python debugger is a must! **FIXME Do we have a course on this?**
+  Python debugger is a must! If you don't know how to use one, read chapter
+  XXX [**Editorial note:** this chapter has not yet been written]) without
+  further delay!
+
 
 - Whether you use an IDE or a text editor, configure it with a static linter
   to check your code as you write it. There are different options available. A
