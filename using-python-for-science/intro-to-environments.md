@@ -304,11 +304,11 @@ Now, check that this works:
 python -c "from skimage import util"
 ```
 
-Now, suppose you start working on a new project that requires scikit-learn.
-Let's try it:
+Now, suppose you want to visualize some 3D image data in your project, so you
+now want to install [napari](https://napari.org). Let's try it:
 
 ```
-pip install scikit-learn
+pip install napari[qt]
 ```
 
 Notice how it upgraded NumPy, but not scikit-image. Now, we try the same code:
@@ -324,7 +324,7 @@ So, an easy way to proceed is to start again!
 ### Exercise: nuke, rinse, repeat
 
 Delete the `borked` environment, and create a new one with current versions of
-NumPy, scikit-learn, and scikit-image.
+NumPy, scikit-image, and napari.
 
 ## Conclusion
 
