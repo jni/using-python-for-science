@@ -11,4 +11,4 @@ the stuff in here, but we'd love your help making it better! So you should read
 it also. ;)
 
 If viewing this book online, use the chapter links on the left for more.
-Chapters with titles [In Square Brackets] are not yet written.
+Chapters with titles [🚧 In Square Brackets 🚧] are not yet written.
