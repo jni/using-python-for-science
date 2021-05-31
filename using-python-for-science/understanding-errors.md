@@ -30,7 +30,9 @@ empty_list[5]  # attempt to access the 6th element
 Running these lines in your Python terminal will cause the following to be printed to your screen:
 
 ```pytb
-IndexError:
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
 ```
 
 So we see that when we try to *index* something incorrectly (this can be a
@@ -50,7 +52,9 @@ empty_dict['hello']
 raises:
 
 ```pytb
-KeyError:
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'hello'
 ```
 
 ### A fast tour of the most common Python errors
@@ -64,7 +68,10 @@ if = 5
 raises
 
 ```pytb
-SyntaxError:
+  File "<stdin>", line 1
+    if = 5
+       ^
+SyntaxError: invalid syntax
 ```
 
 One particularly tricky form of SyntaxError occurs when you forget to close a
@@ -88,12 +95,23 @@ def transform_data(image, tf_matrix):
 which raises:
 
 ```pytb
-SyntaxError:
+  File "<stdin>", line 6
+    def transform_data(image, tf_matrix):
+    ^
+SyntaxError: invalid syntax
 ```
 
 There is nothing wrong with that transform_data definition --- but we did
-forget to close the second parenthesis on the array_data definition! Again,
+forget to close the second parenthesis on the array_data definition! So again,
+if you're completely baffled about why Python is giving you a SyntaxError,
 don't forget to look up!
+
+```{note}
+Starting with Python 3.10, [Python will be
+smarter](https://twitter.com/pyblogsal/status/1385587441323716611) in
+highlighting the exact bit of code that contains the SyntaxError, so you'll be
+able to forget the above advice! :tada:
+```
 
 Because Python does not do type checking ahead of running the code, it's common
 for programs to run into TypeErrors, which happen when a function expects
@@ -108,7 +126,9 @@ math.sqrt('5')
 raises:
 
 ```pytb
-TypeError:
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: must be real number, not str
 ```
 
 A perhaps more cryptic type error occurs when a function is called with the
@@ -124,10 +144,12 @@ add(5)
 raises:
 
 ```pytb
-TypeError:
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: add() missing 1 required positional argument: 'b'
 ```
 
-That's because functions themselves have a type: add's type is a *function*
+That's because functions themselves have a type: `add`'s type is a *function*
 taking a number, another number, and returning a third number. So, when it is
 called with only a single number, we get a type error, because we gave the
 wrong type of thing to the function.
@@ -145,7 +167,9 @@ math.sqrt(-5)
 raises:
 
 ```pytb
-ValueError:
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: math domain error
 ```
 
 The final very common errors are ImportError, and its more specific cousin,
@@ -160,11 +184,28 @@ import package_that_doesnt_exist
 raises:
 
 ```pytb
-ModuleNotFoundError:
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'package_that_doesnt_exist'
 ```
 
-By contrast, ImportError is raised when a module is found, but cannot be
-imported for one reason or another (for example, it contains a SyntaxError.
+By contrast, ImportError is raised when a module is found, but a specific name
+in that module cannot be loaded. For example:
+
+```python
+from math import matrix
+```
+
+will raise something like:
+
+```pytb
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: cannot import name 'matrix' from 'math' (/home/jni/miniconda3/envs/all/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so)
+```
+
+(Though the file path in the parentheses will be different and depend on your
+operating system and Python installation.)
 
 Speaking of things not being found: if you try to access a method on an object
 or a function in a module that doesn't exist, you get an AttributeError:
@@ -179,7 +220,9 @@ a_list.fill(5, 5)
 raises:
 
 ```pytb
-AttributeError:
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'list' object has no attribute 'fill'
 ```
 
 If you try to access a *variable* that doesn't exist (because you haven't
@@ -192,7 +235,9 @@ x = y + 7
 raises:
 
 ```pytb
-NameError:
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'y' is not defined
 ```
 
 Finally, closely related to the SyntaxError is the IndentationError, which is
@@ -202,6 +247,10 @@ line, or *not* indenting code when an indented block is expected, are both
 errors:
 
 ```python
+import os
+
+filename = 'file.txt'
+
 if not os.path.exists(filename):
 print('file not found: ', filename)
 ```
@@ -218,14 +267,22 @@ file = open(filename, 'w')
 ```
 
 will, in fact, not be successful, due to the incorrect indentation of the
-`file.write` line.
+`file.write` line:
+
+```pytb
+  File "<stdin>", line 1
+    file.write('operation successful.')
+    ^
+IndentationError: unexpected indent
+```
+
 
 ### Deep in the bowels of the beast: understanding tracebacks
 
 Viewed in isolation, the above error messages seem easy and friendly. Couldn't
 be easier, right? But if you've played with Python even a little bit, you'll
 know that Python error messages can get a lot bigger and a lot hairier. There's
-even a good chance you've come across this gem:
+a good chance you've come across this gem:
 
 ```python
 import pandas as pd
@@ -233,13 +290,57 @@ data = pd.DataFrame(
     {'name': ['Alice', 'Bob', 'Eve'],
      'faction': ['Friendly', 'Friendly', 'Adversary']}
 )
-data.groupby('Faction')  # notice the typo
+all_factions = set(data['Faction'])  # notice the typo
 ```
 
 which raises:
 
 ```pytb
-KeyError
+KeyError                                  Traceback (most recent call last)
+~/miniconda3/envs/all/lib/python3.8/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
+   2645             try:
+-> 2646                 return self._engine.get_loc(key)
+   2647             except KeyError:
+
+pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
+
+pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
+
+pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
+
+pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
+
+KeyError: 'Faction'
+
+During handling of the above exception, another exception occurred:
+
+KeyError                                  Traceback (most recent call last)
+<ipython-input-8-99ed6b8a31c2> in <module>
+----> 1 all_factions = set(data['Faction'])
+
+~/miniconda3/envs/all/lib/python3.8/site-packages/pandas/core/frame.py in __getitem__(self, key)
+   2798             if self.columns.nlevels > 1:
+   2799                 return self._getitem_multilevel(key)
+-> 2800             indexer = self.columns.get_loc(key)
+   2801             if is_integer(indexer):
+   2802                 indexer = [indexer]
+
+~/miniconda3/envs/all/lib/python3.8/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
+   2646                 return self._engine.get_loc(key)
+   2647             except KeyError:
+-> 2648                 return self._engine.get_loc(self._maybe_cast_indexer(key))
+   2649         indexer = self.get_indexer([key], method=method, tolerance=tolerance)
+   2650         if indexer.ndim > 1 or indexer.size > 1:
+
+pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
+
+pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
+
+pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
+
+pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
+
+KeyError: 'Faction'
 ```
 
 Good God! All that just to tell us that we used a column name that doesn't
@@ -278,40 +379,72 @@ def divide_by(n1, n2):
     return n1 / n2
 ```
 
+Write the above into a file called `pyavg.py`.
+
 Now we try:
 
 ```
 from pyavg import average
 
-print(average([7, 6, 2])
+average([7, 6, 2]
+```
+```
+5.0
+```
+
+So far so good. Now try:
+
+```python
 print(average([]))
 ```
 
 This results in the following small traceback:
 
-```
-ZeroDivisionError
+```pytb
+ZeroDivisionError                         Traceback (most recent call last)
+<ipython-input-11-57501266e9cc> in <module>
+----> 1 average([])
+
+~/projects/using-python-for-science/pyavg.py in average(input_list)
+     13     """
+     14     added = sum(input_list)
+---> 15     avg = divide_by(added, len(input_list))
+     16     return avg
+     17
+
+~/projects/using-python-for-science/pyavg.py in divide_by(n1, n2)
+     18
+     19 def divide_by(n1, n2):
+---> 20     return n1 / n2
+
+ZeroDivisionError: division by zero
 ```
 
 In this case, we wrote all the code executed above so it's easy to see what
-happened: First, we called `average([])`. The sum of that list was computed to
-be 0, and then we called `divide_by`. Within that function, we attempted to
-divide by the length of the list, which was 0, causing the error.
+happened, laid out from top to bottom: First, we called `average([])`. The sum
+of that list was computed (0), and then we called `divide_by`. Within that
+function, we attempted to divide by the length of the list, which was 0,
+causing the error.
 
 You can read tracebacks top to bottom or bottom to top --- both make sense
 depending on context. You can interpret the top to bottom approach as "what was
 the series of events that eventually resulted in an error?" Meanwhile, the
 bottom to top approach is more like: there's been an error; I understand the
 detail of the error (there was a division by zero on this exact line), but what
-actually caused the error to happen? Either way, the traceback contains the
-information you need to do the detective work to understand why an error
-happened, and, probably, what you can do about it.
+actually caused the error to happen? What was the context? In a long traceback,
+it might be easier to understand the error this way (a bit of context around
+the details) than by going all the way to the beginning --- which might be very
+far removed from the actual error.
+
+Either way, the traceback contains the information you need to do the detective
+work to understand why an error happened, and, probably, what you can do about
+it.
 
 Typically, somewhere along the traceback, there is an interface betweene code
 you wrote and code from a library you've installed, or from the Python standard
 library. In many cases, the error happens from *defined* behavior in thta
 library, and you can in a sense stop looking once you get to that interface:
-you cannot control that code (except through pull requests! See (chapter) for
+you cannot control that code (except through pull requests! See REFERENCE for
 more!). Instead, your goal is to figure out how not to raise that error in the
 future by not giving that same input to that library.
 
@@ -322,7 +455,7 @@ in `from operator import divide`. Then, call the error producing code and
 identify the interface where you should catch the error before attempting the
 division by zero.
 
-2. Now try to compute the average of the list ['1', '8, '9']. What is the error
+2. Now try to compute the average of the list `['1', '8, '9']`. What is the error
 now? How would you avoid it?
 
 3. Go back to the pandas traceback above. Try to understand the chain of events
