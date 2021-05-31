@@ -33,11 +33,11 @@ programs --- but each with different features, advantages, disadvantages.
 
 And, just like you can have many different email programs installed on your
 phone or on your computer, so too can you have lots of different Python
-versions on your computer. Probably 95% of installation problems we help people
-with have to do with people not knowing which Python they are using out of the
+versions on your computer. Probably 95% of installation problems
+have to do with people not knowing which Python they are using out of the
 multiple versions on their computer.
 
-To this end, here we show you the single most important diagnostic when
+To help you preempt these issues, here we show you the single most important diagnostic when
 troubleshooting your Python installation problems. In your Python program,
 whether that program is commands entered into the Python prompt, a .py file, or
 a Jupyter notebook, type:
@@ -46,6 +46,16 @@ a Jupyter notebook, type:
 import sys
 print(sys.executable)
 print(sys.path)
+```
+
+The output will look something like this:
+
+```python
+>>> import sys
+>>> print(sys.executable)
+/home/jni/miniconda3/envs/upfs/bin/python
+>>> print(sys.path)
+['', '/home/jni/miniconda3/envs/upfs/lib/python39.zip', '/home/jni/miniconda3/envs/upfs/lib/python3.9', '/home/jni/miniconda3/envs/upfs/lib/python3.9/lib-dynload', '/home/jni/miniconda3/envs/upfs/lib/python3.9/site-packages']
 ```
 
 The first print function call prints the location of the *interpreter* running
@@ -58,7 +68,12 @@ Similarly, `sys.path` tells you the folders within your computer where Python
 is looking for programs or libraries to import. If you install a library with
 conda or pip, it *will* end up in one of these folders. If it's not there, or
 it's a different version from the one you expect, it usually means, again, that
-you've installed it into a different environment.
+you've installed it into a different Python installation.
+
+Together, these two variables make up an *environment*. (Well, to a first
+approximation; in fact, other information is needed, such as where to look for
+*C* libraries that Python depends on. But in most cases, you only need to care
+about which interpreter and which Python libraries you're using.)
 
 ## Managing environments
 
@@ -86,9 +101,11 @@ Although this can be convenient, in our case we want to create, modify, and
 destroy environments at will, so we will skip the One Huge Environment To Rule
 Them All.
 
-In fact, we will not download miniconda itself, but rather *miniforge*, a fork
-of miniconda that uses *conda-forge* as the default location to search for
-packages to install. As of this writing, you can download miniforge at
+In fact, we will not download miniconda itself, but rather *miniforge*, a
+different version
+of miniconda that searches for packages in the *conda-forge* open repository,
+rather than the main Anaconda channel, which is proprietary.
+As of this writing, you can download miniforge at
 https://github.com/conda-forge/miniforge#download, but if that changes, simply
 search the web for "download miniforge". Follow the installation instructions
 on the site, and launch a command line terminal. This will be different
@@ -287,11 +304,11 @@ Now, check that this works:
 python -c "from skimage import util"
 ```
 
-Now, suppose you start working on a new project that requires scikit-learn.
-Let's try it:
+Now, suppose you want to visualize some 3D image data in your project, so you
+now want to install [napari](https://napari.org). Let's try it:
 
 ```
-pip install scikit-learn
+pip install napari[qt]
 ```
 
 Notice how it upgraded NumPy, but not scikit-image. Now, we try the same code:
@@ -307,7 +324,7 @@ So, an easy way to proceed is to start again!
 ### Exercise: nuke, rinse, repeat
 
 Delete the `borked` environment, and create a new one with current versions of
-NumPy, scikit-learn, and scikit-image.
+NumPy, scikit-image, and napari.
 
 ## Conclusion
 

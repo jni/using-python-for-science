@@ -410,16 +410,24 @@ or Apple Mail, so too can all these different versions of Python run Python
 programs — but each with different features, advantages, disadvantages.</p>
 <p>And, just like you can have many different email programs installed on your
 phone or on your computer, so too can you have lots of different Python
-versions on your computer. Probably 95% of installation problems we help people
-with have to do with people not knowing which Python they are using out of the
+versions on your computer. Probably 95% of installation problems
+have to do with people not knowing which Python they are using out of the
 multiple versions on their computer.</p>
-<p>To this end, here we show you the single most important diagnostic when
+<p>To help you preempt these issues, here we show you the single most important diagnostic when
 troubleshooting your Python installation problems. In your Python program,
 whether that program is commands entered into the Python prompt, a .py file, or
 a Jupyter notebook, type:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output will look something like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
+<span class="go">/home/jni/miniconda3/envs/upfs/bin/python</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+<span class="go">[&#39;&#39;, &#39;/home/jni/miniconda3/envs/upfs/lib/python39.zip&#39;, &#39;/home/jni/miniconda3/envs/upfs/lib/python3.9&#39;, &#39;/home/jni/miniconda3/envs/upfs/lib/python3.9/lib-dynload&#39;, &#39;/home/jni/miniconda3/envs/upfs/lib/python3.9/site-packages&#39;]</span>
 </pre></div>
 </div>
 <p>The first print function call prints the location of the <em>interpreter</em> running
@@ -431,7 +439,11 @@ Python interpreter.</p>
 is looking for programs or libraries to import. If you install a library with
 conda or pip, it <em>will</em> end up in one of these folders. If it’s not there, or
 it’s a different version from the one you expect, it usually means, again, that
-you’ve installed it into a different environment.</p>
+you’ve installed it into a different Python installation.</p>
+<p>Together, these two variables make up an <em>environment</em>. (Well, to a first
+approximation; in fact, other information is needed, such as where to look for
+<em>C</em> libraries that Python depends on. But in most cases, you only need to care
+about which interpreter and which Python libraries you’re using.)</p>
 </div>
 <div class="section" id="managing-environments">
 <h2>Managing environments<a class="headerlink" href="#managing-environments" title="Permalink to this headline">¶</a></h2>
@@ -456,9 +468,11 @@ at Anaconda, Inc, all neatly bundled into a single, massive environment.
 Although this can be convenient, in our case we want to create, modify, and
 destroy environments at will, so we will skip the One Huge Environment To Rule
 Them All.</p>
-<p>In fact, we will not download miniconda itself, but rather <em>miniforge</em>, a fork
-of miniconda that uses <em>conda-forge</em> as the default location to search for
-packages to install. As of this writing, you can download miniforge at
+<p>In fact, we will not download miniconda itself, but rather <em>miniforge</em>, a
+different version
+of miniconda that searches for packages in the <em>conda-forge</em> open repository,
+rather than the main Anaconda channel, which is proprietary.
+As of this writing, you can download miniforge at
 <a class="reference external" href="https://github.com/conda-forge/miniforge#download">https://github.com/conda-forge/miniforge#download</a>, but if that changes, simply
 search the web for “download miniforge”. Follow the installation instructions
 on the site, and launch a command line terminal. This will be different
@@ -626,9 +640,9 @@ fix it, just nuke it and start again! Let’s try this out:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;from skimage import util&quot;</span>
 </pre></div>
 </div>
-<p>Now, suppose you start working on a new project that requires scikit-learn.
-Let’s try it:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span>
+<p>Now, suppose you want to visualize some 3D image data in your project, so you
+now want to install <a class="reference external" href="https://napari.org">napari</a>. Let’s try it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">napari</span><span class="p">[</span><span class="n">qt</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Notice how it upgraded NumPy, but not scikit-image. Now, we try the same code:</p>
@@ -642,7 +656,7 @@ So, an easy way to proceed is to start again!</p>
 <div class="section" id="exercise-nuke-rinse-repeat">
 <h3>Exercise: nuke, rinse, repeat<a class="headerlink" href="#exercise-nuke-rinse-repeat" title="Permalink to this headline">¶</a></h3>
 <p>Delete the <code class="docutils literal notranslate"><span class="pre">borked</span></code> environment, and create a new one with current versions of
-NumPy, scikit-learn, and scikit-image.</p>
+NumPy, scikit-image, and napari.</p>
 </div>
 </div>
 <div class="section" id="conclusion">
