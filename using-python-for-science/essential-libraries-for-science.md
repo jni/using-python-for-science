@@ -11,9 +11,8 @@ introduction of what those libraries _do_.
 
 We have divided the list of libraries into 5 categories: (1) core libraries,
 ie libraries that you cannot code for science without; (2) libraries and tools
-you cannot (or should not) work without; (3) visualization and plotting
-libraries; (4) things that will help you speed up your code; (5) domain
-specific libraries.
+you should not work without; (3) visualizationg and plotting libraries; (4)
+things that will help you speed up your code; (5) domain specific libraries.
 
 ## Core libraries: numpy, scipy, pandas.
 
@@ -73,8 +72,11 @@ from scipy import XXX
 
 ## Visualization libraries
 
-- matplotlib
-- seaborn
+- `Matplotlib` is the most widely used visualization library in Python. While
+  the API takes a while to get used to, there is nothing better to create high
+  quality scientific figures for publication! Literally everything can be
+  tweaked, tuned, and modified.
+- `seaborn` is a thin layer on top of Matplotlib
 - bokeh
 - plotly
 - Altair
@@ -91,6 +93,12 @@ from scipy import XXX
 
 - statsmodel
 - scikit-learn
+- tensorflow
 - scikit-image
 - networkx
 - biopython
+
+# Developping packages
+
+- unit tests
+- documentation
