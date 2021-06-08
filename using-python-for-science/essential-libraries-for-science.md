@@ -30,8 +30,7 @@ from scipy import XXX
   typed (all elements of the array are of the same type). `numpy` also
   provides fast and easy operations such as sum, element-wise product, matrix
   product, indexing, slicing, broadcasting, … Note that we have a full chapter
-  on how to use `numpy` (see XXX for details [**Editorial note:** this chapter
-  has not yet been written])! 
+  on how to use `numpy` (see {doc}`numpy` for details)!
 
 - **`scipy`** is the core toolbox for scientific and technical computing for
   Python. It contains many submodules, some related to complex data structures
@@ -45,13 +44,11 @@ from scipy import XXX
   you need an Excel equivalent in Python, use `pandas`. Similarly as `numpy`,
   `pandas` provides fast and easy operations on dataframes, such as pivoting,
   merging, joining, data filtering, column-wise operations. We also have a
-  full chapter on how to use `pandas` (see XXX for details [**Editorial
-  note:** this chapter has not yet been written])!
+  full chapter on how to use `pandas` (see {doc}`pandas` for details)!
 
 ## "Things you cannot (or should not) work without"
 
-- A good text editor or an IDE (See XXX for details [**Editorial
-  note:** this chapter has not yet been written])!
+- A good text editor or an IDE (See {doc}`editors-and-ides` for details)!
 
 - `ipython` is a command shell for Python. Think `python`, but a hundred times
   better! It has syntax highlighting, auto-completion, and many magic
@@ -59,9 +56,8 @@ from scipy import XXX
   exploration, and debugging.
 
 - `pdb`, `ipdb`, `pdb++`, and `pudb` are four python debuggers. Knowing how to use a
-  Python debugger is a must! If you don't know how to use one, read chapter
-  XXX [**Editorial note:** this chapter has not yet been written]) without
-  further delay!
+  Python debugger is a must! If you don't know how to use one, read
+  {doc}`debugging`) without further delay!
 
 
 - Whether you use an IDE or a text editor, configure it with a static linter
