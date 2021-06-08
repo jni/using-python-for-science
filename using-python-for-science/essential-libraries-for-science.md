@@ -76,9 +76,14 @@ from scipy import XXX
   the API takes a while to get used to, there is nothing better to create high
   quality scientific figures for publication! Literally everything can be
   tweaked, tuned, and modified.
-- `seaborn` is a thin layer on top of Matplotlib
-- bokeh
+
+- `seaborn` is a thin layer on top of Matplotlib: you get the flexibility of
+  Matplotlib with an easy-to-use interface.
+
+- `bokeh` 
+
 - plotly
+
 - Altair
 
 ## Speed ups
