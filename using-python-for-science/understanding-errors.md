@@ -113,6 +113,13 @@ highlighting the exact bit of code that contains the SyntaxError, so you'll be
 able to forget the above advice! :tada:
 ```
 
+```{note}
+Modern code editors have integrated tools called "linters" that can tell you
+about these errors before you even run the code. See {doc}`editors-and-ides`
+and {doc}`essential-libraries-for-science` for more details about how to use
+them!
+```
+
 Because Python does not do type checking ahead of running the code, it's common
 for programs to run into TypeErrors, which happen when a function expects
 something of a particular type, say, a number, but gets something else
