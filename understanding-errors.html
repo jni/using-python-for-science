@@ -1,0 +1,856 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Understanding Python errors &#8212; Using Python for Science</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="[🚧 Debugging 🚧]" href="debugging.html" />
+    <link rel="prev" title="[🚧 Get It Working 🚧]" href="get-it-working.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Using Python for Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="book-intro.html">
+   Welcome to Using Python for Science
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="terminals-and-shells.html">
+   [🚧 Terminals And Shells 🚧]
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro-to-environments.html">
+   Introduction to Python environments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="editors-and-ides.html">
+   [🚧 Editors And Ides 🚧]
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="essential-libraries-for-science.html">
+   Essential Libraries For Science
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="get-it-working.html">
+   [🚧 Get It Working 🚧]
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Understanding Python errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="debugging.html">
+     [🚧 Debugging 🚧]
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="get-it-right.html">
+   [🚧 Get It Right 🚧]
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="testing.html">
+     [🚧 Testing 🚧]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="continuous-integration.html">
+     [🚧 Continuous Integration 🚧]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="reproducibility.html">
+     [🚧 Reproducibility 🚧]
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="get-it-fast.html">
+   [🚧 Get It Fast 🚧]
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="profiling.html">
+     [🚧 Profiling 🚧]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cython.html">
+     [🚧 Cython 🚧]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="parallel-python.html">
+     [🚧 Parallel Python 🚧]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="numba.html">
+     [🚧 Numba 🚧]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gpu-libraries.html">
+     [🚧 Gpu Libraries 🚧]
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ship-it.html">
+   [🚧 Ship It 🚧]
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="packaging-for-pip.html">
+     [🚧 Packaging For Pip 🚧]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="packaging-for-conda.html">
+     [🚧 Packaging For Conda 🚧]
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="epilogue.html">
+   [🚧 Epilogue 🚧]
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/understanding-errors.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-fast-tour-of-the-most-common-python-errors">
+   A fast tour of the most common Python errors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deep-in-the-bowels-of-the-beast-understanding-tracebacks">
+   Deep in the bowels of the beast: understanding tracebacks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="understanding-python-errors">
+<h1>Understanding Python errors<a class="headerlink" href="#understanding-python-errors" title="Permalink to this headline">¶</a></h1>
+<p>When something goes wrong with Python code, Python <em>raises</em> an <em>exception</em>. The
+logic behind this term is that it should be rare in good code for actual errors
+to occur. ;) Of course, in the real world, Python exceptions are as common as
+the air we breathe. It is the <em>norm</em> to spend most of your time programming
+with code that doesn’t work.</p>
+<p>Most tutorials written by experienced programmers have perfect flow, sweeping
+under the rug the endless iterations it took to get the code to even run. (This
+book’s authors are as guilty as any of this — but we are now trying to
+rectify things!) As a result, many beginners try to modify the code slightly to
+suit their data or use case, break it in the process (this is normal!), and are
+not prepared to understand how to get it working again.</p>
+<p>In fact, the very act of programming involves a fast loop of writing, running,
+<em>seeing what’s still broken</em>, and rewriting. With practice, you can get much,
+much faster at that third step, and thus speed up your work dramatically. In
+our view, what distinguishes experienced programmers from beginners is less the
+ability to get things right from the get-go, but the ability to quickly recover
+from errors.</p>
+<p>Let’s see how Python represents errors, by typing in some obviously-wrong code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">empty_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">empty_list</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>  <span class="c1"># attempt to access the 6th element</span>
+</pre></div>
+</div>
+<p>Running these lines in your Python terminal will cause the following to be printed to your screen:</p>
+<div class="highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">IndexError</span>: <span class="n">list index out of range</span>
+</pre></div>
+</div>
+<p>So we see that when we try to <em>index</em> something incorrectly (this can be a
+list, but also a tuple, a NumPy array, or many other custom objects that
+support indexing), Python raises an IndexError. This is one of the most common
+errors you’ll see. Typically, it’s caused because the list/tuple/etc that you
+are indexing is shorter than expected, and you need to figure out why that is.</p>
+<p>Similarly, if you try to access a <em>dictionary</em> item that doesn’t exist, you get
+a similar error called a KeyError:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">empty_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">empty_dict</span><span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>raises:</p>
+<div class="highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">KeyError</span>: <span class="n">&#39;hello&#39;</span>
+</pre></div>
+</div>
+<div class="section" id="a-fast-tour-of-the-most-common-python-errors">
+<h2>A fast tour of the most common Python errors<a class="headerlink" href="#a-fast-tour-of-the-most-common-python-errors" title="Permalink to this headline">¶</a></h2>
+<p>Writing code that is not correct Python (all the above was correct Python, just with unexpected inputs) will raise a SyntaxError. For example, the program control keywords in Python (if, for, def, and others) are reserved and cannot be assigned to, since otherwise programs would not work after the point at which these keywords are redefined. Therefore, it is a SyntaxError to try to redefine these keywords:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<p>raises</p>
+<div class="highlight-pytb notranslate"><div class="highlight"><pre><span></span>  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>
+    <span class="k">if</span> <span class="o">=</span> <span class="mi">5</span>
+       <span class="o">^</span>
+<span class="gr">SyntaxError</span>: <span class="n">invalid syntax</span>
+</pre></div>
+</div>
+<p>One particularly tricky form of SyntaxError occurs when you forget to close a
+parenthesis. That’s because it’s valid Python to open a parenthesis on one line
+and continue whatever goes inside the parenthesis along the continuing lines.
+It’s only when you write something that <em>couldn’t</em> go in the parentheses that
+you get the syntax error. So, if you get a SyntaxError and you can’t for the
+life of you figure out why the printed line is wrong, look up: you might have
+forgotten to close a parenthesis a bit higher up.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">array_data</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">),</span>
+
+<span class="k">def</span> <span class="nf">transform_data</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">tf_matrix</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>which raises:</p>
+<div class="highlight-pytb notranslate"><div class="highlight"><pre><span></span>  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">6</span>
+    <span class="k">def</span> <span class="nf">transform_data</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">tf_matrix</span><span class="p">):</span>
+    <span class="o">^</span>
+<span class="gr">SyntaxError</span>: <span class="n">invalid syntax</span>
+</pre></div>
+</div>
+<p>There is nothing wrong with that transform_data definition — but we did
+forget to close the second parenthesis on the array_data definition! So again,
+if you’re completely baffled about why Python is giving you a SyntaxError,
+don’t forget to look up!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Starting with Python 3.10, <a class="reference external" href="https://twitter.com/pyblogsal/status/1385587441323716611">Python will be
+smarter</a> in
+highlighting the exact bit of code that contains the SyntaxError, so you’ll be
+able to forget the above advice! :tada:</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Modern code editors have integrated tools called “linters” that can tell you
+about these errors before you even run the code. See <a class="reference internal" href="editors-and-ides.html"><span class="doc">[🚧 Editors And Ides 🚧]</span></a>
+and <a class="reference internal" href="essential-libraries-for-science.html"><span class="doc">Essential Libraries For Science</span></a> for more details about how to use
+them!</p>
+</div>
+<p>Because Python does not do type checking ahead of running the code, it’s common
+for programs to run into TypeErrors, which happen when a function expects
+something of a particular type, say, a number, but gets something else
+entirely, such as a string, or a list. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="s1">&#39;5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>raises:</p>
+<div class="highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">must be real number, not str</span>
+</pre></div>
+</div>
+<p>A perhaps more cryptic type error occurs when a function is called with the
+wrong number of arguments:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>raises:</p>
+<div class="highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">add() missing 1 required positional argument: &#39;b&#39;</span>
+</pre></div>
+</div>
+<p>That’s because functions themselves have a type: <code class="docutils literal notranslate"><span class="pre">add</span></code>’s type is a <em>function</em>
+taking a number, another number, and returning a third number. So, when it is
+called with only a single number, we get a type error, because we gave the
+wrong type of thing to the function.</p>
+<p>Possibly the most common error you’ll encounter, especially when using other
+people’s software, is the ValueError. This is different from the TypeError in
+that the type of the thing is right, but it might be a <em>value</em> that doesn’t
+make sense. For example, <code class="docutils literal notranslate"><span class="pre">math.sqrt</span></code> takes in ints and floats, but it will
+raise a ValueError if it receives a negative number:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>raises:</p>
+<div class="highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">ValueError</span>: <span class="n">math domain error</span>
+</pre></div>
+</div>
+<p>The final very common errors are ImportError, and its more specific cousin,
+ModuleNotFoundError. The latter occurs when you try to import a bit of software
+that isn’t in your Python installation (see the chapter on environments for
+details):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">package_that_doesnt_exist</span>
+</pre></div>
+</div>
+<p>raises:</p>
+<div class="highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">ModuleNotFoundError</span>: <span class="n">No module named &#39;package_that_doesnt_exist&#39;</span>
+</pre></div>
+</div>
+<p>By contrast, ImportError is raised when a module is found, but a specific name
+in that module cannot be loaded. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">matrix</span>
+</pre></div>
+</div>
+<p>will raise something like:</p>
+<div class="highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">ImportError</span>: <span class="n">cannot import name &#39;matrix&#39; from &#39;math&#39; (/home/jni/miniconda3/envs/all/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so)</span>
+</pre></div>
+</div>
+<p>(Though the file path in the parentheses will be different and depend on your
+operating system and Python installation.)</p>
+<p>Speaking of things not being found: if you try to access a method on an object
+or a function in a module that doesn’t exist, you get an AttributeError:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">a_list</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(Note: lists don’t have a fill method!)</p>
+<p>raises:</p>
+<div class="highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">AttributeError</span>: <span class="n">&#39;list&#39; object has no attribute &#39;fill&#39;</span>
+</pre></div>
+</div>
+<p>A common source of attribute errors is objects being of a type that you don’t
+expect. Here’s an example. Suppose you are working with a file format that
+contains some freeform text, followed by a table, marked by a delimiter line.
+One way to handle it might be as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">def</span> <span class="nf">get_lines</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a list of strings containing the lines in an input text file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filename : str or pathlib.Path</span>
+<span class="sd">        The input file.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    lines : list of str</span>
+<span class="sd">        The output lines. If the file does not exist, the output is None.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">fin</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">header_line_number</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Find the line number of a custom table file.</span>
+
+<span class="sd">    The start of the table is marked by the line &#39;# -- header --&#39;.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    lines : list of str</span>
+<span class="sd">        The input lines.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    header_line : int</span>
+<span class="sd">        The line at which the table starts.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">lines</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;# -- header --&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Now, we can try:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;filenme-with-typo-in-it.txt&#39;</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">get_lines</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The header for </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1"> is in line </span><span class="si">{</span><span class="n">header_line_number</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will raise the error:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;NoneType&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;find&#39;</span>
+</pre></div>
+</div>
+<p>That’s because the file was never found, so <code class="docutils literal notranslate"><span class="pre">lines</span></code> is not a list as we expect,
+but None. When we try <code class="docutils literal notranslate"><span class="pre">lines.find</span></code>, we get a nasty error. It’s very common for
+functions to return None to indicate that they weren’t able to do the requested
+task, so it’s very useful to be aware of this kind of error.</p>
+<p>If you try to access a <em>variable</em> that doesn’t exist (because you haven’t
+created it or imported it), you get a NameError:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">7</span>
+</pre></div>
+</div>
+<p>raises:</p>
+<div class="highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">NameError</span>: <span class="n">name &#39;y&#39; is not defined</span>
+</pre></div>
+</div>
+<p>Finally, closely related to the SyntaxError is the IndentationError, which is
+raised  when code is not indented correctly. Remember that indentation is
+significant in Python, and indenting code when it should match the previous
+line, or <em>not</em> indenting code when an indented block is expected, are both
+errors:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;file.txt&#39;</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;file not found: &#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>will raise an IndentationError because you should always indent code after an
+if-statement. Generally, if you have a statement that ends in a colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>),
+the next line should be indented by four spaces.</p>
+<p>Similarly,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;operation successful.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>will, in fact, not be successful, due to the incorrect indentation of the
+<code class="docutils literal notranslate"><span class="pre">file.write</span></code> line:</p>
+<div class="highlight-pytb notranslate"><div class="highlight"><pre><span></span>  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;operation successful.&#39;</span><span class="p">)</span>
+    <span class="o">^</span>
+<span class="gr">IndentationError</span>: <span class="n">unexpected indent</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="deep-in-the-bowels-of-the-beast-understanding-tracebacks">
+<h2>Deep in the bowels of the beast: understanding tracebacks<a class="headerlink" href="#deep-in-the-bowels-of-the-beast-understanding-tracebacks" title="Permalink to this headline">¶</a></h2>
+<p>Viewed in isolation, the above error messages seem easy and friendly. Couldn’t
+be easier, right? But if you’ve played with Python even a little bit, you’ll
+know that Python error messages can get a lot bigger and a lot hairier. There’s
+a good chance you’ve come across this gem:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Eve&#39;</span><span class="p">],</span>
+     <span class="s1">&#39;faction&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Friendly&#39;</span><span class="p">,</span> <span class="s1">&#39;Friendly&#39;</span><span class="p">,</span> <span class="s1">&#39;Adversary&#39;</span><span class="p">]}</span>
+<span class="p">)</span>
+<span class="n">all_factions</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Faction&#39;</span><span class="p">])</span>  <span class="c1"># notice the typo</span>
+</pre></div>
+</div>
+<p>which raises:</p>
+<div class="highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="x">KeyError                                  Traceback (most recent call last)</span>
+<span class="x">~/miniconda3/envs/all/lib/python3.8/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)</span>
+<span class="x">   2645             try:</span>
+<span class="x">-&gt; 2646                 return self._engine.get_loc(key)</span>
+<span class="x">   2647             except KeyError:</span>
+
+<span class="x">pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()</span>
+
+<span class="x">pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()</span>
+
+<span class="x">pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()</span>
+
+<span class="x">pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()</span>
+
+<span class="x">KeyError: &#39;Faction&#39;</span>
+
+<span class="gt">During handling of the above exception, another exception occurred:</span>
+
+<span class="x">KeyError                                  Traceback (most recent call last)</span>
+<span class="x">&lt;ipython-input-8-99ed6b8a31c2&gt; in &lt;module&gt;</span>
+<span class="x">----&gt; 1 all_factions = set(data[&#39;Faction&#39;])</span>
+
+<span class="x">~/miniconda3/envs/all/lib/python3.8/site-packages/pandas/core/frame.py in __getitem__(self, key)</span>
+<span class="x">   2798             if self.columns.nlevels &gt; 1:</span>
+<span class="x">   2799                 return self._getitem_multilevel(key)</span>
+<span class="x">-&gt; 2800             indexer = self.columns.get_loc(key)</span>
+<span class="x">   2801             if is_integer(indexer):</span>
+<span class="x">   2802                 indexer = [indexer]</span>
+
+<span class="x">~/miniconda3/envs/all/lib/python3.8/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)</span>
+<span class="x">   2646                 return self._engine.get_loc(key)</span>
+<span class="x">   2647             except KeyError:</span>
+<span class="x">-&gt; 2648                 return self._engine.get_loc(self._maybe_cast_indexer(key))</span>
+<span class="x">   2649         indexer = self.get_indexer([key], method=method, tolerance=tolerance)</span>
+<span class="x">   2650         if indexer.ndim &gt; 1 or indexer.size &gt; 1:</span>
+
+<span class="x">pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()</span>
+
+<span class="x">pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()</span>
+
+<span class="x">pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()</span>
+
+<span class="x">pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()</span>
+
+<span class="x">KeyError: &#39;Faction&#39;</span>
+</pre></div>
+</div>
+<p>Good God! All that just to tell us that we used a column name that doesn’t
+exist!</p>
+<p>That, my good friends, is called a <em>traceback</em>, and it attempts to capture all
+the events that led to a particular error. In fact, all of the errors we
+generated above were also tracebacks, but they just happened to be skin deep:
+the error was right on the line that we typed. Tracebacks are Python’s way of
+surfacing errors that happen deep in your program. A less technical term might
+be “breadcrumb trail.”</p>
+<p>Let’s look at what happens when we build a slightly less complicated traceback
+so we can describe it in more detail.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute the average of a list of numbers.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_list : list of integers or floats</span>
+<span class="sd">        The list for which to compute the average.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    avg : float</span>
+<span class="sd">        The resulting average value.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">added</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>
+    <span class="n">avg</span> <span class="o">=</span> <span class="n">divide_by</span><span class="p">(</span><span class="n">added</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_list</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">avg</span>
+
+
+<span class="k">def</span> <span class="nf">divide_by</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">n1</span> <span class="o">/</span> <span class="n">n2</span>
+</pre></div>
+</div>
+<p>Write the above into a file called <code class="docutils literal notranslate"><span class="pre">pyavg.py</span></code>.</p>
+<p>Now we try:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyavg</span> <span class="kn">import</span> <span class="n">average</span>
+
+<span class="n">average</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">5.0</span>
+</pre></div>
+</div>
+<p>So far so good. Now try:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">average</span><span class="p">([]))</span>
+</pre></div>
+</div>
+<p>This results in the following small traceback:</p>
+<div class="highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="x">ZeroDivisionError                         Traceback (most recent call last)</span>
+<span class="x">&lt;ipython-input-11-57501266e9cc&gt; in &lt;module&gt;</span>
+<span class="x">----&gt; 1 average([])</span>
+
+<span class="x">~/projects/using-python-for-science/pyavg.py in average(input_list)</span>
+<span class="x">     13     &quot;&quot;&quot;</span>
+<span class="x">     14     added = sum(input_list)</span>
+<span class="x">---&gt; 15     avg = divide_by(added, len(input_list))</span>
+<span class="x">     16     return avg</span>
+<span class="x">     17</span>
+
+<span class="x">~/projects/using-python-for-science/pyavg.py in divide_by(n1, n2)</span>
+<span class="x">     18</span>
+<span class="x">     19 def divide_by(n1, n2):</span>
+<span class="x">---&gt; 20     return n1 / n2</span>
+
+<span class="x">ZeroDivisionError: division by zero</span>
+</pre></div>
+</div>
+<p>In this case, we wrote all the code executed above so it’s easy to see what
+happened, laid out from top to bottom: First, we called <code class="docutils literal notranslate"><span class="pre">average([])</span></code>. The sum
+of that list was computed (0), and then we called <code class="docutils literal notranslate"><span class="pre">divide_by</span></code>. Within that
+function, we attempted to divide by the length of the list, which was 0,
+causing the error.</p>
+<p>You can read tracebacks top to bottom or bottom to top — both make sense
+depending on context. You can interpret the top to bottom approach as “what was
+the series of events that eventually resulted in an error?” Meanwhile, the
+bottom to top approach is more like: there’s been an error; I understand the
+detail of the error (there was a division by zero on this exact line), but what
+actually caused the error to happen? What was the context? In a long traceback,
+it might be easier to understand the error this way (a bit of context around
+the details) than by going all the way to the beginning — which might be very
+far removed from the actual error.</p>
+<p>Either way, the traceback contains the information you need to do the detective
+work to understand why an error happened, and, probably, what you can do about
+it.</p>
+<p>Typically, somewhere along the traceback, there is an interface between code
+you wrote and code from a library you’ve installed, or from the Python standard
+library. In many cases, the error happens from <em>defined</em> behavior in that
+library, and you can in a sense stop looking once you get to that interface:
+you cannot control that code (except through pull requests! See REFERENCE for
+more!). Instead, your goal is to figure out how not to raise that error in the
+future by not giving that same input to that library.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Rework the above code to remove our definition of divide_by with the built
+in <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">operator</span> <span class="pre">import</span> <span class="pre">divide</span></code>. Then, call the error producing code and
+identify the interface where you should catch the error before attempting the
+division by zero.</p></li>
+<li><p>Now try to compute the average of the list <code class="docutils literal notranslate"><span class="pre">['1',</span> <span class="pre">'8',</span> <span class="pre">'9']</span></code>. What is the
+error now? How would you avoid it?</p></li>
+<li><p>Go back to the pandas traceback above. Try to understand the chain of events
+that led to a deep KeyError inside of that library. (ie, which function called
+which? Can you find those bits in the <a class="reference external" href="https://github.com/pandas-dev/pandas">pandas source
+code</a>?</p></li>
+<li><p>Run the following bits of code, find and understand the error, and suggest a
+fix:</p></li>
+</ol>
+<p>a.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tempfile</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="s1">&#39;.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_output</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">f_output</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>b.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>c.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">data</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="n">color</span>
+
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">rgb2gray</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">astronaut</span><span class="p">())</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="get-it-working.html" title="previous page">[🚧 Get It Working 🚧]</a>
+    <a class='right-next' id="next-link" href="debugging.html" title="next page">[🚧 Debugging 🚧]</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Juan Nunez-Iglesias & Nelle Varoquaux<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
