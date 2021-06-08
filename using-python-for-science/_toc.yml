@@ -33,7 +33,7 @@ chapters:
     # Total time: 3 x 15 minutes?
 - file: get-it-working
   sections:
-  - file: understanding-tracebacks
+  - file: understanding-errors
     # 10 minutes?
   - file: debugging
     # 15 minutes?
