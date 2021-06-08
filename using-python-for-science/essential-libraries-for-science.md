@@ -5,18 +5,19 @@ out there in terms of functionality, tools, libraries, … You do not need to
 know how to do a task, but that this task is possible using this or that
 library. In this chapter, we provide a somewhat opiniated list of tools and
 libraries that you should know about when writing code for science. We will
-not teach how _how_ to use those libraries, but we only provide a short
+not teach _how_ to use those libraries, as there are plenty of
+available resources for that. Instead, we only provide a short
 introduction of what those libraries _do_.
 
 We have divided the list of libraries into 5 categories: (1) core libraries,
 ie libraries that you cannot code for science without; (2) libraries and tools
-you cannot (or should not) work without; (3) visualizationg & plotting
+you cannot (or should not) work without; (3) visualization and plotting
 libraries; (4) things that will help you speed up your code; (5) domain
 specific libraries.
 
 ## Core libraries: numpy, scipy, pandas.
 
-About 95% of scientific Python code start with the following lines:
+About 95% of scientific Python code starts with the following lines:
 
 ```python
 import numpy as np
@@ -44,7 +45,7 @@ from scipy import XXX
   arrays, with homogeously typed columns and fast indexing capabilities). If
   you need an Excel equivalent in Python, use `pandas`. Similarly as `numpy`,
   `pandas` provides fast and easy operations on dataframes, such as pivoting,
-  merging, joining, data filtration, column-wise operations. We also have a
+  merging, joining, data filtering, column-wise operations. We also have a
   full chapter on how to use `pandas` (see XXX for details [**Editorial
   note:** this chapter has not yet been written])!
 
@@ -55,10 +56,10 @@ from scipy import XXX
 
 - `ipython` is a command shell for Python. Think `python`, but a hundred times
   better! It has syntax highlighting, auto-completion, and many magic
-  functions (`%debug`, `%run`, etc) to ease the process of programming and
-  debugging.
+  functions (`%debug`, `%run`, etc) to ease the process of programming, data
+  exploration, and debugging.
 
-- `pdb`, `ipdb`, `pdb++` are three python debuggers. Knowing how to use a
+- `pdb`, `ipdb`, `pdb++`, and `pudb` are four python debuggers. Knowing how to use a
   Python debugger is a must! If you don't know how to use one, read chapter
   XXX [**Editorial note:** this chapter has not yet been written]) without
   further delay!
@@ -76,7 +77,7 @@ from scipy import XXX
 - seaborn
 - bokeh
 - plotly
-- Jake's thing
+- Altair
 
 ## Speed ups
 
@@ -93,4 +94,3 @@ from scipy import XXX
 - scikit-image
 - networkx
 - biopython
-
