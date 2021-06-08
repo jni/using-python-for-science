@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>[🚧 Essential Libraries For Science 🚧] &#8212; Using Python for Science</title>
+    <title>Essential Libraries For Science &#8212; Using Python for Science</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -105,39 +105,17 @@
    [🚧 Editors And Ides 🚧]
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   [🚧 Essential Libraries For Science 🚧]
+   Essential Libraries For Science
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="numpy.html">
-     [🚧 Numpy 🚧]
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="matplotlib.html">
-     [🚧 Matplotlib 🚧]
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="pandas.html">
-     [🚧 Pandas 🚧]
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="get-it-working.html">
    [🚧 Get It Working 🚧]
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -158,8 +136,8 @@
   <a class="reference internal" href="get-it-right.html">
    [🚧 Get It Right 🚧]
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -185,8 +163,8 @@
   <a class="reference internal" href="get-it-fast.html">
    [🚧 Get It Fast 🚧]
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -222,8 +200,8 @@
   <a class="reference internal" href="ship-it.html">
    [🚧 Ship It 🚧]
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -311,6 +289,51 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Essential Libraries For Science
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#core-libraries-numpy-scipy-pandas">
+     Core libraries: numpy, scipy, pandas.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#things-you-cannot-or-should-not-work-without">
+     “Things you cannot (or should not) work without”
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualization-libraries">
+     Visualization libraries
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#speed-ups">
+     Speed ups
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#domain-specific">
+     Domain specific
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#developping-packages">
+   Developping packages
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -320,7 +343,110 @@
               <div>
                 
   <div class="section" id="essential-libraries-for-science">
-<h1>[🚧 Essential Libraries For Science 🚧]<a class="headerlink" href="#essential-libraries-for-science" title="Permalink to this headline">¶</a></h1>
+<h1>Essential Libraries For Science<a class="headerlink" href="#essential-libraries-for-science" title="Permalink to this headline">¶</a></h1>
+<p>A core part of programming is having a vague understanding of what exists
+out there in terms of functionality, tools, libraries, … You do not need to
+know how to do a task, but that this task is possible using this or that
+library. In this chapter, we provide a somewhat opiniated list of tools and
+libraries that you should know about when writing code for science. We will
+not teach <em>how</em> to use those libraries, as there are plenty of
+available resources for that. Instead, we only provide a short
+introduction of what those libraries <em>do</em>.</p>
+<p>We have divided the list of libraries into 5 categories: (1) core libraries,
+ie libraries that you cannot code for science without; (2) libraries and tools
+you should not work without; (3) visualizationg and plotting libraries; (4)
+things that will help you speed up your code; (5) domain specific libraries.</p>
+<div class="section" id="core-libraries-numpy-scipy-pandas">
+<h2>Core libraries: numpy, scipy, pandas.<a class="headerlink" href="#core-libraries-numpy-scipy-pandas" title="Permalink to this headline">¶</a></h2>
+<p>About 95% of scientific Python code starts with the following lines:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">XXX</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">numpy</span></code></strong>’s core functionality is to provide an easy-to-use and efficient
+n-dimensional array data structure called <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>. Any numerical analysis
+code in Python heavily relies on the <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> data structure. The main
+difference with Python’s list is that arrays are almost always homogeneously
+typed (all elements of the array are of the same type). <code class="docutils literal notranslate"><span class="pre">numpy</span></code> also
+provides fast and easy operations such as sum, element-wise product, matrix
+product, indexing, slicing, broadcasting, … Note that we have a full chapter
+on how to use <code class="docutils literal notranslate"><span class="pre">numpy</span></code> (see <a class="reference internal" href="numpy.html"><span class="doc">[🚧 Numpy 🚧]</span></a> for details)!</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">scipy</span></code></strong> is the core toolbox for scientific and technical computing for
+Python. It contains many submodules, some related to complex data structures
+(for sparse matrices for example) or operations on <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> (linear
+algebra, fourier transforms, IO), others domain specific (signal processing,
+image processing, clustering). View <code class="docutils literal notranslate"><span class="pre">scipy</span></code> as the Swiss army knife of
+scientific computing in Python.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">pandas</span></code></strong> is a software library for the manipulation of data frames (an
+object to store tabular data, as you might find in Excel or relational
+databases). This differs from NumPy arrays in being ‘column-oriented’: the
+values in each column have to be of the same type, but one row can contain
+many different types of objects.” Just as NumPy does for arrays,
+<code class="docutils literal notranslate"><span class="pre">pandas</span></code> provides fast and easy operations on dataframes, such as pivoting,
+merging, joining, data filtering, column-wise operations. We also have a
+full chapter on how to use <code class="docutils literal notranslate"><span class="pre">pandas</span></code> (see <a class="reference internal" href="pandas.html"><span class="doc">[🚧 Pandas 🚧]</span></a> for details)!</p></li>
+</ul>
+</div>
+<div class="section" id="things-you-cannot-or-should-not-work-without">
+<h2>“Things you cannot (or should not) work without”<a class="headerlink" href="#things-you-cannot-or-should-not-work-without" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>A good text editor or an IDE (See <a class="reference internal" href="editors-and-ides.html"><span class="doc">[🚧 Editors And Ides 🚧]</span></a> for details)!</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ipython</span></code> is a command shell for Python. Think <code class="docutils literal notranslate"><span class="pre">python</span></code>, but a hundred times
+better! It has syntax highlighting, auto-completion, and many magic
+functions (<code class="docutils literal notranslate"><span class="pre">%debug</span></code>, <code class="docutils literal notranslate"><span class="pre">%run</span></code>, etc) to ease the process of programming, data
+exploration, and debugging.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pdb</span></code>, <code class="docutils literal notranslate"><span class="pre">ipdb</span></code>, <code class="docutils literal notranslate"><span class="pre">pdb++</span></code>, and <code class="docutils literal notranslate"><span class="pre">pudb</span></code> are four python debuggers. Knowing how to use a
+Python debugger is a must! If you don’t know how to use one, read
+<a class="reference internal" href="debugging.html"><span class="doc">[🚧 Debugging 🚧]</span></a>) without further delay!</p></li>
+<li><p>Whether you use an IDE or a text editor, configure it with a static linter
+to check your code as you write it. There are different options available. A
+widely used static linter is <code class="docutils literal notranslate"><span class="pre">flake8</span></code>: it combines three tools into one
+(<code class="docutils literal notranslate"><span class="pre">pyflakes</span></code>, <code class="docutils literal notranslate"><span class="pre">pycodestyle</span></code>, and <code class="docutils literal notranslate"><span class="pre">mccabe</span></code>). Another popular one is <code class="docutils literal notranslate"><span class="pre">pylint</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="visualization-libraries">
+<h2>Visualization libraries<a class="headerlink" href="#visualization-libraries" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> is the most widely used visualization library in Python. While
+the API takes a while to get used to, there is nothing better to create high
+quality scientific figures for publication! Literally everything can be
+tweaked, tuned, and modified.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code> is a thin layer on top of Matplotlib: you get the flexibility of
+Matplotlib with an easy-to-use interface.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bokeh</span></code></p></li>
+<li><p>plotly</p></li>
+<li><p>Altair</p></li>
+</ul>
+</div>
+<div class="section" id="speed-ups">
+<h2>Speed ups<a class="headerlink" href="#speed-ups" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>profilers</p></li>
+<li><p>cython</p></li>
+<li><p>numba</p></li>
+<li><p>joblib</p></li>
+<li><p>dask</p></li>
+</ul>
+</div>
+<div class="section" id="domain-specific">
+<h2>Domain specific<a class="headerlink" href="#domain-specific" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>statsmodel</p></li>
+<li><p>scikit-learn</p></li>
+<li><p>tensorflow</p></li>
+<li><p>scikit-image</p></li>
+<li><p>networkx</p></li>
+<li><p>biopython</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="developping-packages">
+<h1>Developping packages<a class="headerlink" href="#developping-packages" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>unit tests</p></li>
+<li><p>documentation</p></li>
+</ul>
 <div class="toctree-wrapper compound">
 </div>
 </div>
