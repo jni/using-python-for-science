@@ -550,3 +550,13 @@ b = np.array([4, 5])
 
 c = np.concatenate(a, b)
 ```
+
+c.
+
+```python
+from skimage import data, filters, color
+
+
+image = color.rgb2gray(data.astronaut())
+result = filters.gaussian(image, sigma=(1, 1, 0))
+```
