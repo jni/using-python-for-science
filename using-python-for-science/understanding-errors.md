@@ -420,7 +420,7 @@ the events that led to a particular error. In fact, all of the errors we
 generated above were also tracebacks, but they just happened to be skin deep:
 the error was right on the line that we typed. Tracebacks are Python's way of
 surfacing errors that happen deep in your program. A less technical term might
-be "breadcrumb trail".
+be "breadcrumb trail."
 
 Let's look at what happens when we build a slightly less complicated traceback
 so we can describe it in more detail.
@@ -509,9 +509,9 @@ Either way, the traceback contains the information you need to do the detective
 work to understand why an error happened, and, probably, what you can do about
 it.
 
-Typically, somewhere along the traceback, there is an interface betweene code
+Typically, somewhere along the traceback, there is an interface between code
 you wrote and code from a library you've installed, or from the Python standard
-library. In many cases, the error happens from *defined* behavior in thta
+library. In many cases, the error happens from *defined* behavior in that
 library, and you can in a sense stop looking once you get to that interface:
 you cannot control that code (except through pull requests! See REFERENCE for
 more!). Instead, your goal is to figure out how not to raise that error in the
