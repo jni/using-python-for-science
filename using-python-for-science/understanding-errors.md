@@ -521,6 +521,32 @@ division by zero.
 error now? How would you avoid it?
 
 3. Go back to the pandas traceback above. Try to understand the chain of events
-that led to a deep KeyError inside of that library.
+that led to a deep KeyError inside of that library. (ie, which function called
+which? Can you find those bits in the [pandas source
+code](https://github.com/pandas-dev/pandas)?
 
-4, 5. (Find common NumPy/SciPy tracebacks to set as exercises.)
+4. Run the following bits of code, find and understand the error, and suggest a
+fix:
+
+a.
+
+```python
+import tempfile
+
+import numpy as np
+
+arr = np.random.random((5, 5))
+with tempfile.NamedTemporaryFile(suffix='.txt') as f_output:
+    np.savetxt(arr, f_output)
+```
+
+b.
+
+```python
+import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5])
+
+c = np.concatenate(a, b)
+```
