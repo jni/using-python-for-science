@@ -39,9 +39,11 @@ from scipy import XXX
   image processing, clustering). View `scipy` as the Swiss army knife of
   scientific computing in Python.
 
-- **`pandas`** is a software library for the manipulation of data frames (2D
-  arrays, with homogeously typed columns and fast indexing capabilities). If
-  you need an Excel equivalent in Python, use `pandas`. Similarly as `numpy`,
+- **`pandas`** is a software library for the manipulation of data frames (an
+  object to store tabular data, as you might find in Excel or relational
+  databases). This differs from NumPy arrays in being 'column-oriented': the
+  values in each column have to be of the same type, but one row can contain
+  many different types of objects." Just as NumPy does for arrays,
   `pandas` provides fast and easy operations on dataframes, such as pivoting,
   merging, joining, data filtering, column-wise operations. We also have a
   full chapter on how to use `pandas` (see {doc}`pandas` for details)!
