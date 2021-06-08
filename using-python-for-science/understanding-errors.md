@@ -225,6 +225,68 @@ Traceback (most recent call last):
 AttributeError: 'list' object has no attribute 'fill'
 ```
 
+A common source of attribute errors is objects being of a type that you don't
+expect. Here's an example. Suppose you are working with a file format that
+contains some freeform text, followed by a table, marked by a delimiter line.
+One way to handle it might be as follows:
+
+```python
+import os
+
+def get_lines(filename):
+    """Return a list of strings containing the lines in an input text file.
+
+    Parameters
+    ----------
+    filename : str or pathlib.Path
+        The input file.
+
+    Returns
+    -------
+    lines : list of str
+        The output lines. If the file does not exist, the output is None.
+    """
+    if os.path.exists(filename) and os.path.isfile(filename):
+        with open(filename, mode='r') as fin:
+            return fin.readlines()
+
+def header_line_number(lines):
+    """Find the line number of a custom table file.
+
+    The start of the table is marked by the line '# -- header --'.
+
+    Parameters
+    ----------
+    lines : list of str
+        The input lines.
+
+    Returns
+    -------
+    header_line : int
+        The line at which the table starts.
+    """
+    return lines.find('# -- header --') + 1
+```
+
+Now, we can try:
+
+```python
+filename = 'filenme-with-typo-in-it.txt'
+lines = get_lines(filename)
+print(f'The header for {filename} is in line {header_line_number(lines)}')
+```
+
+This will raise the error:
+
+```python
+AttributeError: 'NoneType' object has no attribute 'find'
+```
+
+That's because the file was never found, so `lines` is not a list as we expect,
+but None. When we try `lines.find`, we get a nasty error. It's very common for
+functions to return None to indicate that they weren't able to do the requested
+task, so it's very useful to be aware of this kind of error.
+
 If you try to access a *variable* that doesn't exist (because you haven't
 created it or imported it), you get a NameError:
 
