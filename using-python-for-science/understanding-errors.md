@@ -517,8 +517,8 @@ in `from operator import divide`. Then, call the error producing code and
 identify the interface where you should catch the error before attempting the
 division by zero.
 
-2. Now try to compute the average of the list `['1', '8, '9']`. What is the error
-now? How would you avoid it?
+2. Now try to compute the average of the list `['1', '8', '9']`. What is the
+error now? How would you avoid it?
 
 3. Go back to the pandas traceback above. Try to understand the chain of events
 that led to a deep KeyError inside of that library.
