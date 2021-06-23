@@ -1,7 +1,4 @@
 ---
-title: "Essential Libraries for Science"
-subtitle: ""
-author: "Juan Nunez-Iglesios & Nelle Varoquaux"
 jupytext:
   text_representation:
     extension: .md
