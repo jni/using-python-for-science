@@ -1,3 +1,15 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+
 # Essential Libraries For Science
 
 A core part of programming is having a vague understanding of what exists
@@ -70,38 +82,119 @@ from scipy import XXX
 
 ## Visualization libraries
 
-- `Matplotlib` is the most widely used visualization library in Python. While
-  the API takes a while to get used to, there is nothing better to create high
-  quality scientific figures for publication! Literally everything can be
-  tweaked, tuned, and modified.
+- **`Matplotlib`** is the most widely used visualization library in Python.
+  While the API takes a while to get used to, there is nothing better to
+  create high quality scientific figures for publication! Literally everything
+  can be tweaked, tuned, and modified.
 
-- `seaborn` is a thin layer on top of Matplotlib: you get the flexibility of
-  Matplotlib with an easy-to-use interface.
+- **`seaborn`** is a thin layer on top of Matplotlib: you get the flexibility
+  of `Matplotlib` with an easy-to-use interface.
 
-- `bokeh` 
+- **`bokeh`**, **`plotly`**, and **`altair`** are three excellent choices of
+  plotting libraries with interactive outputs. All of these play very well
+  with notebooks, such as myst-nb or jupyter notebooks. Note that `plotly` can
+  be used to create interactive tables as well. Because we can't resist
+  showing off cool features, here's a small code snippet we shamelessly stole
+  from the myst-nb documentation on creating an interactive table and plot.
 
-- plotly
 
-- Altair
+Here's an interactive table with `plotly`:
+
+```{code-cell} python
+import plotly.express as px
+data = px.data.iris()
+data.head()
+```
+
+And now a small graph of the same data with `Altair`:
+```{code-cell} python
+import altair as alt
+alt.Chart(data=data).mark_point().encode(
+    x="sepal_width",
+    y="sepal_length",
+    color="species",
+    size='sepal_length'
+)
+```
+
 
 ## Speed ups
 
-- profilers
-- cython
-- numba
-- joblib
-- dask
+Once you have a performing piece of code, it may come the time where you have
+to speed your code up. Keep in mind that "Premature optimization is the root
+of all evil," so don't look too closely at the list of packages in this
+section unless you are sure that (1) your code works; (2) you really need to
+speed things up.
+
+- The first step of speeding up your code is to profile it: no need to spend
+  time optimizing the data analysis part if 90% of the time is spend on
+  loading the data. In order to do this, profile your code! There are many
+  profilers out there, but our favorite ones are **`line_profiler`** and
+  **`kernprof`**. `line_profiler` allows to do line-by-line profiling of
+  functions, while `kernprof` is a convenient script for running a
+  line-profiler (either `line_profiler` or `cProfile`, which is part of Python
+  standard library). If you are interested in profiling memory, we recommend
+  **`memprofiler`**. We invite you to read {doc}`profiling` if you
+  are at this step of the speed-up process!
+
+- **`cython`** is a programming language. It is a *superset* of Python, which
+  means that any valid Python is *also* valid Cython. However, it supports
+  *additional* syntax that allows it to be closer to the C language. Cython
+  thus sits between Python and C and serves two purposes: (1) easily interface
+  Python code and C code; (2) a Python/Cython to C compiler. The goal of
+  Cython is to give C-like performance with the ease of readability and
+  flexibility of Python. See {doc}`cython` for more details!
+
+- **`numba`** is a JIT compiler for Python, as well as a parallelization
+  toolkit. It uses LLVM to generate machine code from Python code.
+  Specifically designed for scientific purposes, it can yield 100x speed ups
+  to a function by simply adding a decorator to it. We also give more details
+  about using it in {doc}`numba`.
+
+- **`joblib`** provides a set of tools to create lightweight pipelining in
+  Python. Precisely, it has three main features: (1) fast disk-caching
+  capabilities; (2) embarassingly parallel helper functions; (3) and fast
+  compressed persistence for large data. The power of this library comes from
+  how lightweight it is and non-intrusive. You can use many of `joblib`'s
+  feature with barely any changes to the original code.
+
+- **`dask`** is a very powerful, parallelization libraries for data analytics.
+  It integrates very nicely with existing projects, such as `numpy`, `pandas`,
+  and `scikit-learn`. We won't go into much details here, as we once again have
+  a full chapter on this library! See {doc}`parallel-python` for more details.
 
 ## Domain specific
 
-- statsmodel
-- scikit-learn
-- tensorflow
-- scikit-image
-- networkx
-- biopython
+The problem when it comes to domain specific libraries is that, well… They are
+domain specific. As a result, only specialists of each domain know which
+library to use when. Yet, unlike some communities (such as R), there are still
+widely used and maintained packages for some domain. For example, the go-to
+library to do astronomy data analysis in Python is `astropy`: none of us,
+authors, are astronomers, yet we know that it is the go-to library (but,
+please, don't ask us more about `astropy`…).
 
-# Developping packages
+Here, we provide a list of packages, with a small description, and sometimes a
+bit more detail about when to use which package.
 
-- unit tests
-- documentation
+- **`statsmodel`**: if you need to do standard statistics in Python, and
+  `scipy.stats` doesn't cover it, there's a good chance it can be done with
+  `statsmodel`.  It covers generalized least squares, quantile regression,
+  linear mixed-effects model (no, you do not have to use R to do those!!).
+- **`scikit-learn`** is the go-to libary for machine learning that isn't deep:
+  SVM, regression models, random forests, cross-validation, and many metrics
+  are included in this package. But if you need a p-value out of your model,
+  you should check out `statsmodels` and not `scikit-learn`. If you want to do
+  deep learning, then check out our next element in the list.
+- **`tensorflow`** is the go-to library for doing deep-learning & neural networks
+  in Python.
+- **`scikit-image`** complements `scipy.ndimage` for image processing algorithms.
+- **`networkx`** is meant for network analysis in Python
+- **`biopython`** provides support for biological data analysis in Python
+  (sequencing, alignment, population genetics algorithm, and structure
+  bioinformatrics).[^DE_analysis]
+- **`astropy`** is, as mentioned, a toolbox for astronomy data analysis.
+
+[^DE_analysis]: Unfortunately, if you are looking for a tool to do
+    differential expression analysis, nothing much exists and the standard is
+    still to use R and bioconductor…
+

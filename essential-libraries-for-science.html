@@ -105,17 +105,39 @@
    [🚧 Editors And Ides 🚧]
   </a>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
    Essential Libraries For Science
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="numpy.html">
+     [🚧 Numpy 🚧]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="matplotlib.html">
+     [🚧 Matplotlib 🚧]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pandas.html">
+     [🚧 Pandas 🚧]
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="get-it-working.html">
    [🚧 Get It Working 🚧]
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -136,8 +158,8 @@
   <a class="reference internal" href="get-it-right.html">
    [🚧 Get It Right 🚧]
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -163,8 +185,8 @@
   <a class="reference internal" href="get-it-fast.html">
    [🚧 Get It Fast 🚧]
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -200,8 +222,8 @@
   <a class="reference internal" href="ship-it.html">
    [🚧 Ship It 🚧]
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -262,7 +284,10 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
+        <a class="dropdown-buttons"
+            href="_sources/essential-libraries-for-science.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="_sources/essential-libraries-for-science.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
@@ -284,6 +309,23 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/essential-libraries-for-science.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -294,41 +336,29 @@
             </div>
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Essential Libraries For Science
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#core-libraries-numpy-scipy-pandas">
+   Core libraries: numpy, scipy, pandas.
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#core-libraries-numpy-scipy-pandas">
-     Core libraries: numpy, scipy, pandas.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#things-you-cannot-or-should-not-work-without">
-     “Things you cannot (or should not) work without”
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visualization-libraries">
-     Visualization libraries
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#speed-ups">
-     Speed ups
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#domain-specific">
-     Domain specific
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#developping-packages">
-   Developping packages
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#things-you-cannot-or-should-not-work-without">
+   “Things you cannot (or should not) work without”
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualization-libraries">
+   Visualization libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#speed-ups">
+   Speed ups
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#domain-specific">
+   Domain specific
   </a>
  </li>
 </ul>
@@ -408,45 +438,252 @@ widely used static linter is <code class="docutils literal notranslate"><span cl
 <div class="section" id="visualization-libraries">
 <h2>Visualization libraries<a class="headerlink" href="#visualization-libraries" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> is the most widely used visualization library in Python. While
-the API takes a while to get used to, there is nothing better to create high
-quality scientific figures for publication! Literally everything can be
-tweaked, tuned, and modified.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code> is a thin layer on top of Matplotlib: you get the flexibility of
-Matplotlib with an easy-to-use interface.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bokeh</span></code></p></li>
-<li><p>plotly</p></li>
-<li><p>Altair</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code></strong> is the most widely used visualization library in Python.
+While the API takes a while to get used to, there is nothing better to
+create high quality scientific figures for publication! Literally everything
+can be tweaked, tuned, and modified.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">seaborn</span></code></strong> is a thin layer on top of Matplotlib: you get the flexibility
+of <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> with an easy-to-use interface.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">bokeh</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">plotly</span></code></strong>, and <strong><code class="docutils literal notranslate"><span class="pre">altair</span></code></strong> are three excellent choices of
+plotting libraries with interactive outputs. All of these play very well
+with notebooks, such as myst-nb or jupyter notebooks. Note that <code class="docutils literal notranslate"><span class="pre">plotly</span></code> can
+be used to create interactive tables as well. Because we can’t resist
+showing off cool features, here’s a small code snippet we shamelessly stole
+from the myst-nb documentation on creating an interactive table and plot.</p></li>
 </ul>
+<p>Here’s an interactive table with <code class="docutils literal notranslate"><span class="pre">plotly</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">iris</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+      <th>species_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>And now a small graph of the same data with <code class="docutils literal notranslate"><span class="pre">Altair</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;sepal_width&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="s1">&#39;sepal_length&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-0faf9aa6e7f44745bd7bc5be1f1f8629"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-0faf9aa6e7f44745bd7bc5be1f1f8629") {
+      outputDiv = document.getElementById("altair-viz-0faf9aa6e7f44745bd7bc5be1f1f8629");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-98ae83e5d702045aa997eca40b770a99"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "species"}, "size": {"type": "quantitative", "field": "sepal_length"}, "x": {"type": "quantitative", "field": "sepal_width"}, "y": {"type": "quantitative", "field": "sepal_length"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-98ae83e5d702045aa997eca40b770a99": [{"sepal_length": 5.1, "sepal_width": 3.5, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 4.9, "sepal_width": 3.0, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 4.7, "sepal_width": 3.2, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 4.6, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 5.0, "sepal_width": 3.6, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 5.4, "sepal_width": 3.9, "petal_length": 1.7, "petal_width": 0.4, "species": "setosa", "species_id": 1}, {"sepal_length": 4.6, "sepal_width": 3.4, "petal_length": 1.4, "petal_width": 0.3, "species": "setosa", "species_id": 1}, {"sepal_length": 5.0, "sepal_width": 3.4, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 4.4, "sepal_width": 2.9, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 4.9, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.1, "species": "setosa", "species_id": 1}, {"sepal_length": 5.4, "sepal_width": 3.7, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 4.8, "sepal_width": 3.4, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 4.8, "sepal_width": 3.0, "petal_length": 1.4, "petal_width": 0.1, "species": "setosa", "species_id": 1}, {"sepal_length": 4.3, "sepal_width": 3.0, "petal_length": 1.1, "petal_width": 0.1, "species": "setosa", "species_id": 1}, {"sepal_length": 5.8, "sepal_width": 4.0, "petal_length": 1.2, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 5.7, "sepal_width": 4.4, "petal_length": 1.5, "petal_width": 0.4, "species": "setosa", "species_id": 1}, {"sepal_length": 5.4, "sepal_width": 3.9, "petal_length": 1.3, "petal_width": 0.4, "species": "setosa", "species_id": 1}, {"sepal_length": 5.1, "sepal_width": 3.5, "petal_length": 1.4, "petal_width": 0.3, "species": "setosa", "species_id": 1}, {"sepal_length": 5.7, "sepal_width": 3.8, "petal_length": 1.7, "petal_width": 0.3, "species": "setosa", "species_id": 1}, {"sepal_length": 5.1, "sepal_width": 3.8, "petal_length": 1.5, "petal_width": 0.3, "species": "setosa", "species_id": 1}, {"sepal_length": 5.4, "sepal_width": 3.4, "petal_length": 1.7, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 5.1, "sepal_width": 3.7, "petal_length": 1.5, "petal_width": 0.4, "species": "setosa", "species_id": 1}, {"sepal_length": 4.6, "sepal_width": 3.6, "petal_length": 1.0, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 5.1, "sepal_width": 3.3, "petal_length": 1.7, "petal_width": 0.5, "species": "setosa", "species_id": 1}, {"sepal_length": 4.8, "sepal_width": 3.4, "petal_length": 1.9, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 5.0, "sepal_width": 3.0, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 5.0, "sepal_width": 3.4, "petal_length": 1.6, "petal_width": 0.4, "species": "setosa", "species_id": 1}, {"sepal_length": 5.2, "sepal_width": 3.5, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 5.2, "sepal_width": 3.4, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 4.7, "sepal_width": 3.2, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 4.8, "sepal_width": 3.1, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 5.4, "sepal_width": 3.4, "petal_length": 1.5, "petal_width": 0.4, "species": "setosa", "species_id": 1}, {"sepal_length": 5.2, "sepal_width": 4.1, "petal_length": 1.5, "petal_width": 0.1, "species": "setosa", "species_id": 1}, {"sepal_length": 5.5, "sepal_width": 4.2, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 4.9, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.1, "species": "setosa", "species_id": 1}, {"sepal_length": 5.0, "sepal_width": 3.2, "petal_length": 1.2, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 5.5, "sepal_width": 3.5, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 4.9, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.1, "species": "setosa", "species_id": 1}, {"sepal_length": 4.4, "sepal_width": 3.0, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 5.1, "sepal_width": 3.4, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 5.0, "sepal_width": 3.5, "petal_length": 1.3, "petal_width": 0.3, "species": "setosa", "species_id": 1}, {"sepal_length": 4.5, "sepal_width": 2.3, "petal_length": 1.3, "petal_width": 0.3, "species": "setosa", "species_id": 1}, {"sepal_length": 4.4, "sepal_width": 3.2, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 5.0, "sepal_width": 3.5, "petal_length": 1.6, "petal_width": 0.6, "species": "setosa", "species_id": 1}, {"sepal_length": 5.1, "sepal_width": 3.8, "petal_length": 1.9, "petal_width": 0.4, "species": "setosa", "species_id": 1}, {"sepal_length": 4.8, "sepal_width": 3.0, "petal_length": 1.4, "petal_width": 0.3, "species": "setosa", "species_id": 1}, {"sepal_length": 5.1, "sepal_width": 3.8, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 4.6, "sepal_width": 3.2, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 5.3, "sepal_width": 3.7, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 5.0, "sepal_width": 3.3, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "species_id": 1}, {"sepal_length": 7.0, "sepal_width": 3.2, "petal_length": 4.7, "petal_width": 1.4, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.4, "sepal_width": 3.2, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.9, "sepal_width": 3.1, "petal_length": 4.9, "petal_width": 1.5, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.5, "sepal_width": 2.3, "petal_length": 4.0, "petal_width": 1.3, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.5, "sepal_width": 2.8, "petal_length": 4.6, "petal_width": 1.5, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.7, "sepal_width": 2.8, "petal_length": 4.5, "petal_width": 1.3, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.3, "sepal_width": 3.3, "petal_length": 4.7, "petal_width": 1.6, "species": "versicolor", "species_id": 2}, {"sepal_length": 4.9, "sepal_width": 2.4, "petal_length": 3.3, "petal_width": 1.0, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.6, "sepal_width": 2.9, "petal_length": 4.6, "petal_width": 1.3, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.2, "sepal_width": 2.7, "petal_length": 3.9, "petal_width": 1.4, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.0, "sepal_width": 2.0, "petal_length": 3.5, "petal_width": 1.0, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.9, "sepal_width": 3.0, "petal_length": 4.2, "petal_width": 1.5, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.0, "sepal_width": 2.2, "petal_length": 4.0, "petal_width": 1.0, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.1, "sepal_width": 2.9, "petal_length": 4.7, "petal_width": 1.4, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.6, "sepal_width": 2.9, "petal_length": 3.6, "petal_width": 1.3, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.7, "sepal_width": 3.1, "petal_length": 4.4, "petal_width": 1.4, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.6, "sepal_width": 3.0, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 4.1, "petal_width": 1.0, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.2, "sepal_width": 2.2, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.6, "sepal_width": 2.5, "petal_length": 3.9, "petal_width": 1.1, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.9, "sepal_width": 3.2, "petal_length": 4.8, "petal_width": 1.8, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.1, "sepal_width": 2.8, "petal_length": 4.0, "petal_width": 1.3, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.3, "sepal_width": 2.5, "petal_length": 4.9, "petal_width": 1.5, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.1, "sepal_width": 2.8, "petal_length": 4.7, "petal_width": 1.2, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.4, "sepal_width": 2.9, "petal_length": 4.3, "petal_width": 1.3, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.6, "sepal_width": 3.0, "petal_length": 4.4, "petal_width": 1.4, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.8, "sepal_width": 2.8, "petal_length": 4.8, "petal_width": 1.4, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.7, "sepal_width": 3.0, "petal_length": 5.0, "petal_width": 1.7, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.0, "sepal_width": 2.9, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.7, "sepal_width": 2.6, "petal_length": 3.5, "petal_width": 1.0, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.5, "sepal_width": 2.4, "petal_length": 3.8, "petal_width": 1.1, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.5, "sepal_width": 2.4, "petal_length": 3.7, "petal_width": 1.0, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 3.9, "petal_width": 1.2, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.0, "sepal_width": 2.7, "petal_length": 5.1, "petal_width": 1.6, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.4, "sepal_width": 3.0, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.0, "sepal_width": 3.4, "petal_length": 4.5, "petal_width": 1.6, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.7, "sepal_width": 3.1, "petal_length": 4.7, "petal_width": 1.5, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.3, "sepal_width": 2.3, "petal_length": 4.4, "petal_width": 1.3, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.6, "sepal_width": 3.0, "petal_length": 4.1, "petal_width": 1.3, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.5, "sepal_width": 2.5, "petal_length": 4.0, "petal_width": 1.3, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.5, "sepal_width": 2.6, "petal_length": 4.4, "petal_width": 1.2, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.1, "sepal_width": 3.0, "petal_length": 4.6, "petal_width": 1.4, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.8, "sepal_width": 2.6, "petal_length": 4.0, "petal_width": 1.2, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.0, "sepal_width": 2.3, "petal_length": 3.3, "petal_width": 1.0, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.6, "sepal_width": 2.7, "petal_length": 4.2, "petal_width": 1.3, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.7, "sepal_width": 3.0, "petal_length": 4.2, "petal_width": 1.2, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.7, "sepal_width": 2.9, "petal_length": 4.2, "petal_width": 1.3, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.2, "sepal_width": 2.9, "petal_length": 4.3, "petal_width": 1.3, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.1, "sepal_width": 2.5, "petal_length": 3.0, "petal_width": 1.1, "species": "versicolor", "species_id": 2}, {"sepal_length": 5.7, "sepal_width": 2.8, "petal_length": 4.1, "petal_width": 1.3, "species": "versicolor", "species_id": 2}, {"sepal_length": 6.3, "sepal_width": 3.3, "petal_length": 6.0, "petal_width": 2.5, "species": "virginica", "species_id": 3}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 5.1, "petal_width": 1.9, "species": "virginica", "species_id": 3}, {"sepal_length": 7.1, "sepal_width": 3.0, "petal_length": 5.9, "petal_width": 2.1, "species": "virginica", "species_id": 3}, {"sepal_length": 6.3, "sepal_width": 2.9, "petal_length": 5.6, "petal_width": 1.8, "species": "virginica", "species_id": 3}, {"sepal_length": 6.5, "sepal_width": 3.0, "petal_length": 5.8, "petal_width": 2.2, "species": "virginica", "species_id": 3}, {"sepal_length": 7.6, "sepal_width": 3.0, "petal_length": 6.6, "petal_width": 2.1, "species": "virginica", "species_id": 3}, {"sepal_length": 4.9, "sepal_width": 2.5, "petal_length": 4.5, "petal_width": 1.7, "species": "virginica", "species_id": 3}, {"sepal_length": 7.3, "sepal_width": 2.9, "petal_length": 6.3, "petal_width": 1.8, "species": "virginica", "species_id": 3}, {"sepal_length": 6.7, "sepal_width": 2.5, "petal_length": 5.8, "petal_width": 1.8, "species": "virginica", "species_id": 3}, {"sepal_length": 7.2, "sepal_width": 3.6, "petal_length": 6.1, "petal_width": 2.5, "species": "virginica", "species_id": 3}, {"sepal_length": 6.5, "sepal_width": 3.2, "petal_length": 5.1, "petal_width": 2.0, "species": "virginica", "species_id": 3}, {"sepal_length": 6.4, "sepal_width": 2.7, "petal_length": 5.3, "petal_width": 1.9, "species": "virginica", "species_id": 3}, {"sepal_length": 6.8, "sepal_width": 3.0, "petal_length": 5.5, "petal_width": 2.1, "species": "virginica", "species_id": 3}, {"sepal_length": 5.7, "sepal_width": 2.5, "petal_length": 5.0, "petal_width": 2.0, "species": "virginica", "species_id": 3}, {"sepal_length": 5.8, "sepal_width": 2.8, "petal_length": 5.1, "petal_width": 2.4, "species": "virginica", "species_id": 3}, {"sepal_length": 6.4, "sepal_width": 3.2, "petal_length": 5.3, "petal_width": 2.3, "species": "virginica", "species_id": 3}, {"sepal_length": 6.5, "sepal_width": 3.0, "petal_length": 5.5, "petal_width": 1.8, "species": "virginica", "species_id": 3}, {"sepal_length": 7.7, "sepal_width": 3.8, "petal_length": 6.7, "petal_width": 2.2, "species": "virginica", "species_id": 3}, {"sepal_length": 7.7, "sepal_width": 2.6, "petal_length": 6.9, "petal_width": 2.3, "species": "virginica", "species_id": 3}, {"sepal_length": 6.0, "sepal_width": 2.2, "petal_length": 5.0, "petal_width": 1.5, "species": "virginica", "species_id": 3}, {"sepal_length": 6.9, "sepal_width": 3.2, "petal_length": 5.7, "petal_width": 2.3, "species": "virginica", "species_id": 3}, {"sepal_length": 5.6, "sepal_width": 2.8, "petal_length": 4.9, "petal_width": 2.0, "species": "virginica", "species_id": 3}, {"sepal_length": 7.7, "sepal_width": 2.8, "petal_length": 6.7, "petal_width": 2.0, "species": "virginica", "species_id": 3}, {"sepal_length": 6.3, "sepal_width": 2.7, "petal_length": 4.9, "petal_width": 1.8, "species": "virginica", "species_id": 3}, {"sepal_length": 6.7, "sepal_width": 3.3, "petal_length": 5.7, "petal_width": 2.1, "species": "virginica", "species_id": 3}, {"sepal_length": 7.2, "sepal_width": 3.2, "petal_length": 6.0, "petal_width": 1.8, "species": "virginica", "species_id": 3}, {"sepal_length": 6.2, "sepal_width": 2.8, "petal_length": 4.8, "petal_width": 1.8, "species": "virginica", "species_id": 3}, {"sepal_length": 6.1, "sepal_width": 3.0, "petal_length": 4.9, "petal_width": 1.8, "species": "virginica", "species_id": 3}, {"sepal_length": 6.4, "sepal_width": 2.8, "petal_length": 5.6, "petal_width": 2.1, "species": "virginica", "species_id": 3}, {"sepal_length": 7.2, "sepal_width": 3.0, "petal_length": 5.8, "petal_width": 1.6, "species": "virginica", "species_id": 3}, {"sepal_length": 7.4, "sepal_width": 2.8, "petal_length": 6.1, "petal_width": 1.9, "species": "virginica", "species_id": 3}, {"sepal_length": 7.9, "sepal_width": 3.8, "petal_length": 6.4, "petal_width": 2.0, "species": "virginica", "species_id": 3}, {"sepal_length": 6.4, "sepal_width": 2.8, "petal_length": 5.6, "petal_width": 2.2, "species": "virginica", "species_id": 3}, {"sepal_length": 6.3, "sepal_width": 2.8, "petal_length": 5.1, "petal_width": 1.5, "species": "virginica", "species_id": 3}, {"sepal_length": 6.1, "sepal_width": 2.6, "petal_length": 5.6, "petal_width": 1.4, "species": "virginica", "species_id": 3}, {"sepal_length": 7.7, "sepal_width": 3.0, "petal_length": 6.1, "petal_width": 2.3, "species": "virginica", "species_id": 3}, {"sepal_length": 6.3, "sepal_width": 3.4, "petal_length": 5.6, "petal_width": 2.4, "species": "virginica", "species_id": 3}, {"sepal_length": 6.4, "sepal_width": 3.1, "petal_length": 5.5, "petal_width": 1.8, "species": "virginica", "species_id": 3}, {"sepal_length": 6.0, "sepal_width": 3.0, "petal_length": 4.8, "petal_width": 1.8, "species": "virginica", "species_id": 3}, {"sepal_length": 6.9, "sepal_width": 3.1, "petal_length": 5.4, "petal_width": 2.1, "species": "virginica", "species_id": 3}, {"sepal_length": 6.7, "sepal_width": 3.1, "petal_length": 5.6, "petal_width": 2.4, "species": "virginica", "species_id": 3}, {"sepal_length": 6.9, "sepal_width": 3.1, "petal_length": 5.1, "petal_width": 2.3, "species": "virginica", "species_id": 3}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 5.1, "petal_width": 1.9, "species": "virginica", "species_id": 3}, {"sepal_length": 6.8, "sepal_width": 3.2, "petal_length": 5.9, "petal_width": 2.3, "species": "virginica", "species_id": 3}, {"sepal_length": 6.7, "sepal_width": 3.3, "petal_length": 5.7, "petal_width": 2.5, "species": "virginica", "species_id": 3}, {"sepal_length": 6.7, "sepal_width": 3.0, "petal_length": 5.2, "petal_width": 2.3, "species": "virginica", "species_id": 3}, {"sepal_length": 6.3, "sepal_width": 2.5, "petal_length": 5.0, "petal_width": 1.9, "species": "virginica", "species_id": 3}, {"sepal_length": 6.5, "sepal_width": 3.0, "petal_length": 5.2, "petal_width": 2.0, "species": "virginica", "species_id": 3}, {"sepal_length": 6.2, "sepal_width": 3.4, "petal_length": 5.4, "petal_width": 2.3, "species": "virginica", "species_id": 3}, {"sepal_length": 5.9, "sepal_width": 3.0, "petal_length": 5.1, "petal_width": 1.8, "species": "virginica", "species_id": 3}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
 </div>
 <div class="section" id="speed-ups">
 <h2>Speed ups<a class="headerlink" href="#speed-ups" title="Permalink to this headline">¶</a></h2>
+<p>Once you have a performing piece of code, it may come the time where you have
+to speed your code up. Keep in mind that “Premature optimization is the root
+of all evil,” so don’t look too closely at the list of packages in this
+section unless you are sure that (1) your code works; (2) you really need to
+speed things up.</p>
 <ul class="simple">
-<li><p>profilers</p></li>
-<li><p>cython</p></li>
-<li><p>numba</p></li>
-<li><p>joblib</p></li>
-<li><p>dask</p></li>
+<li><p>The first step of speeding up your code is to profile it: no need to spend
+time optimizing the data analysis part if 90% of the time is spend on
+loading the data. In order to do this, profile your code! There are many
+profilers out there, but our favorite ones are <strong><code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></strong> and
+<strong><code class="docutils literal notranslate"><span class="pre">kernprof</span></code></strong>. <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code> allows to do line-by-line profiling of
+functions, while <code class="docutils literal notranslate"><span class="pre">kernprof</span></code> is a convenient script for running a
+line-profiler (either <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code> or <code class="docutils literal notranslate"><span class="pre">cProfile</span></code>, which is part of Python
+standard library). If you are interested in profiling memory, we recommend
+<strong><code class="docutils literal notranslate"><span class="pre">memprofiler</span></code></strong>. We invite you to read <a class="reference internal" href="profiling.html"><span class="doc">[🚧 Profiling 🚧]</span></a> if you
+are at this step of the speed-up process!</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">cython</span></code></strong> is a programming language. It is a <em>superset</em> of Python, which
+means that any valid Python is <em>also</em> valid Cython. However, it supports
+<em>additional</em> syntax that allows it to be closer to the C language. Cython
+thus sits between Python and C and serves two purposes: (1) easily interface
+Python code and C code; (2) a Python/Cython to C compiler. The goal of
+Cython is to give C-like performance with the ease of readability and
+flexibility of Python. See <a class="reference internal" href="cython.html"><span class="doc">[🚧 Cython 🚧]</span></a> for more details!</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">numba</span></code></strong> is a JIT compiler for Python, as well as a parallelization
+toolkit. It uses LLVM to generate machine code from Python code.
+Specifically designed for scientific purposes, it can yield 100x speed ups
+to a function by simply adding a decorator to it. We also give more details
+about using it in <a class="reference internal" href="numba.html"><span class="doc">[🚧 Numba 🚧]</span></a>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">joblib</span></code></strong> provides a set of tools to create lightweight pipelining in
+Python. Precisely, it has three main features: (1) fast disk-caching
+capabilities; (2) embarassingly parallel helper functions; (3) and fast
+compressed persistence for large data. The power of this library comes from
+how lightweight it is and non-intrusive. You can use many of <code class="docutils literal notranslate"><span class="pre">joblib</span></code>’s
+feature with barely any changes to the original code.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">dask</span></code></strong> is a very powerful, parallelization libraries for data analytics.
+It integrates very nicely with existing projects, such as <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>. We won’t go into much details here, as we once again have
+a full chapter on this library! See <a class="reference internal" href="parallel-python.html"><span class="doc">[🚧 Parallel Python 🚧]</span></a> for more details.</p></li>
 </ul>
 </div>
 <div class="section" id="domain-specific">
 <h2>Domain specific<a class="headerlink" href="#domain-specific" title="Permalink to this headline">¶</a></h2>
+<p>The problem when it comes to domain specific libraries is that, well… They are
+domain specific. As a result, only specialists of each domain know which
+library to use when. Yet, unlike some communities (such as R), there are still
+widely used and maintained packages for some domain. For example, the go-to
+library to do astronomy data analysis in Python is <code class="docutils literal notranslate"><span class="pre">astropy</span></code>: none of us,
+authors, are astronomers, yet we know that it is the go-to library (but,
+please, don’t ask us more about <code class="docutils literal notranslate"><span class="pre">astropy</span></code>…).</p>
+<p>Here, we provide a list of packages, with a small description, and sometimes a
+bit more detail about when to use which package.</p>
 <ul class="simple">
-<li><p>statsmodel</p></li>
-<li><p>scikit-learn</p></li>
-<li><p>tensorflow</p></li>
-<li><p>scikit-image</p></li>
-<li><p>networkx</p></li>
-<li><p>biopython</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">statsmodel</span></code></strong>: if you need to do standard statistics in Python, and
+<code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> doesn’t cover it, there’s a good chance it can be done with
+<code class="docutils literal notranslate"><span class="pre">statsmodel</span></code>.  It covers generalized least squares, quantile regression,
+linear mixed-effects model (no, you do not have to use R to do those!!).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></strong> is the go-to libary for machine learning that isn’t deep:
+SVM, regression models, random forests, cross-validation, and many metrics
+are included in this package. But if you need a p-value out of your model,
+you should check out <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> and not <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>. If you want to do
+deep learning, then check out our next element in the list.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">tensorflow</span></code></strong> is the go-to library for doing deep-learning &amp; neural networks
+in Python.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">scikit-image</span></code></strong> complements <code class="docutils literal notranslate"><span class="pre">scipy.ndimage</span></code> for image processing algorithms.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">networkx</span></code></strong> is meant for network analysis in Python</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">biopython</span></code></strong> provides support for biological data analysis in Python
+(sequencing, alignment, population genetics algorithm, and structure
+bioinformatrics).<a class="footnote-reference brackets" href="#de-analysis" id="id1">1</a></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">astropy</span></code></strong> is, as mentioned, a toolbox for astronomy data analysis.</p></li>
 </ul>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="de-analysis"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Unfortunately, if you are looking for a tool to do
+differential expression analysis, nothing much exists and the standard is
+still to use R and bioconductor…</p>
+</dd>
+</dl>
 </div>
-</div>
-<div class="section" id="developping-packages">
-<h1>Developping packages<a class="headerlink" href="#developping-packages" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p>unit tests</p></li>
-<li><p>documentation</p></li>
-</ul>
 <div class="toctree-wrapper compound">
 </div>
 </div>
