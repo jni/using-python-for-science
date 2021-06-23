@@ -134,20 +134,22 @@ speed things up.
   functions, while `kernprof` is a convenient script for running a
   line-profiler (either `line_profiler` or `cProfile`, which is part of Python
   standard library). If you are interested in profiling memory, we recommend
-  **`memprofiler`**. We invite you to read our chapter {doc}`profiling` if you
+  **`memprofiler`**. We invite you to read {doc}`profiling` if you
   are at this step of the speed-up process!
 
-- **`cython`** is sort of a programming language, in between Python and C that
-  has two purposes: (1) easily interface Python code and C code; (2) a
-  Python/Cython to C compiler. The goal of `cython` is to give C-like
-  performance with the ease of readability and flexibility of Python. See
-  {doc}`get-it-fast` for more details!
+- **`cython`** is a programming language. It is a *superset* of Python, which
+  means that any valid Python is *also* valid Cython. However, it supports
+  *additional* syntax that allows it to be closer to the C language. Cython
+  thus sits between Python and C and serves two purposes: (1) easily interface
+  Python code and C code; (2) a Python/Cython to C compiler. The goal of
+  Cython is to give C-like performance with the ease of readability and
+  flexibility of Python. See {doc}`cython` for more details!
 
 - **`numba`** is a JIT compiler for Python, as well as a parallelization
   toolkit. It uses LLVM to generate machine code from Python code.
   Specifically designed for scientific purposes, it can yield 100x speed ups
-  to a function by simply adding a decorator to it. We also talk about
-  `numba` in {doc}`get-it-fast`.
+  to a function by simply adding a decorator to it. We also give more details
+  about using it in {doc}`numba`.
 
 - **`joblib`** provides a set of tools to create lightweight pipelining in
   Python. Precisely, it has three main features: (1) fast disk-caching
@@ -157,9 +159,9 @@ speed things up.
   feature with barely any changes to the original code.
 
 - **`dask`** is a very powerful, parallelization libraries for data analytics.
-  It integrates very nicely with existing projects, such as `numpy`, `pandas`, and
-  `scikit-learn`. We won't go into much details here, as we once again have a
-  full chapter on this library! See {doc}`parallel-python` for more details.
+  It integrates very nicely with existing projects, such as `numpy`, `pandas`,
+  and `scikit-learn`. We won't go into much details here, as we once again have
+  a full chapter on this library! See {doc}`parallel-python` for more details.
 
 ## Domain specific
 
