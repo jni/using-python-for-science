@@ -127,7 +127,7 @@ section unless you are sure that (1) your code works; (2) you really need to
 speed things up.
 
 - The first step of speeding up your code is to profile it: no need to spend
-  time optimizating the data analysis part if 90% of the time is spend on
+  time optimizing the data analysis part if 90% of the time is spend on
   loading the data. In order to do this, profile your code! There are many
   profilers out there, but our favorite ones are **`line_profiler`** and
   **`kernprof`**. `line_profiler` allows to do line-by-line profiling of
