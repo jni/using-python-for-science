@@ -27,5 +27,5 @@ breaking the functionality, sometimes in subtle ways. The tests are your
 North Star that tell you when your speedups are actually correct.
 
 So, in this section, we start with "get it working:" how to understand
-errors when they happen ({ref}`understanding-errors`), and how to track them
-down and fix them ({ref}`debugging`).
+errors when they happen ({doc}`understanding-errors`), and how to track them
+down and fix them ({doc}`debugging`).
