@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>[🚧 Get It Working 🚧] &#8212; Using Python for Science</title>
+    <title>Get It Working &#8212; Using Python for Science</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -134,7 +134,7 @@
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   [🚧 Get It Working 🚧]
+   Get It Working
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -320,7 +320,33 @@
               <div>
                 
   <div class="section" id="get-it-working">
-<h1>[🚧 Get It Working 🚧]<a class="headerlink" href="#get-it-working" title="Permalink to this headline">¶</a></h1>
+<h1>Get It Working<a class="headerlink" href="#get-it-working" title="Permalink to this headline">¶</a></h1>
+<p>I once saw on Twitter (can’t find proper attribution now 😞) a good mantra
+for how to approach a programming problem: “Get it working, get it right, get
+it fast,” <em>in that order.</em> In other words, you shouldn’t aim for perfection
+straight away: you will have a hard time even getting started. Rather, start
+by doing the “naive” approach, the first thing that pops in your head, and
+get it running without errors. Don’t worry about edge cases, or about whether
+a specific line of code is correct or off by one. Just get it running.</p>
+<p>Once it’s running without errors, check the inputs and outputs for some known
+values, and make sure they match what you expect. For example, if you write a
+function that will rotate a 2D vector by 90 degrees between the x and y axes,
+check that running [1, 0] through the function gives [0, 1]. Also, check that
+[1, 1] gets you close to [-1, 1]. (It might not be perfect because floating
+point arithmetic in computers is not exact.) And so on. If the output doesn’t
+match, <em>now</em> you start working through the code to try to figure out where
+the calculations are going wrong. Importantly, <a class="reference internal" href="testing.html"><span class="doc std std-doc">write tests</span></a> so that
+you know from then on, every time you change the code, whether it is still
+working correctly.</p>
+<p>Finally, when everything is working, <em>then</em> you can worry about making it run
+faster. There are <a class="reference internal" href="get-it-fast.html"><span class="doc std std-doc">lots of strategies</span></a> for this, and,
+importantly, you <em>absolutely must</em> have tests in place before doing this,
+because it’s a virtual certainty that in your speedups you will end up
+breaking the functionality, sometimes in subtle ways. The tests are your
+North Star that tell you when your speedups are actually correct.</p>
+<p>So, in this section, we start with “get it working:” how to understand
+errors when they happen (<span class="xref std std-ref">understanding-errors</span>), and how to track them
+down and fix them (<span class="xref std std-ref">debugging</span>).</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
