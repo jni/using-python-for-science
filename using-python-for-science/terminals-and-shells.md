@@ -76,3 +76,14 @@ name: terminal-screenshots
 ---
 Terminals from different operating systems, running various shells.
 ```
+
+On macOS, there is a built-in terminal called, um, Terminal, or you can
+download other terminal applications with more features such as iTerm2.
+Additionally, IDEs such as VSCode and PyCharm come with a built-in terminal
+(see {doc}`editors-and-ides`). All of these terminals can access different
+*shells*, such as bash, zsh, and fish. Although recent macOS versions default
+to zsh, we recommend sticking to bash, as it is one of the oldest shells
+(released in 1989!), and most shell commands you find on the internet are
+written for bash rather than zsh or fish.
+
+
