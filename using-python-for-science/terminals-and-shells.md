@@ -120,7 +120,16 @@ Bash prompt on macOS Big Sur.
 ---
 name: cmd-prompt
 ---
-Command Prompt on Windows Terminal for Windows 10.
+Command Prompt using Cmd.exe on Windows 10
+```
+````
+
+````{tabbed} Windows Terminal
+```{figure} images/cmd-prompt-terminal.png
+---
+name: cmd-prompt-terminal
+---
+Command Prompt using Windows Terminal on Windows 10
 ```
 ````
 
@@ -133,17 +142,144 @@ ready for the next command from the user.
 It's important to know that the *evaluate* part can take a long time, and
 although you can still enter text during this phase, the shell is *not*
 listening to you during this time! As an example that you will surely encounter
-in your Python journey, when you launch a Jupyter notebook, you launch a
-long-running process that takes over your terminal until you quit by pressing
-"Ctrl-C", which is a near-universal command for "interrupt" across terminals
-and operating systems. (Yes, in Windows and Linux, this conflicts with the
-"copy" shortcut. This is in fact the reason that macOS uses "Cmd" instead of
-"Ctrl" for its UI shortcuts. But, on Windows and Linux, the precendence of this
-shortcut means that you need to use "Ctrl-Shift-C" and "Ctrl-Shift-V" for
-copy-paste into the terminal.)
+in your Python journey, when you launch a Jupyter notebook by typing the
+command `jupyter notebook`, you launch a long-running process that takes over
+your terminal until you quit by pressing "Ctrl-C", which is a near-universal
+command for "interrupt" across terminals and operating systems. (Yes, in
+Windows and Linux, this conflicts with the "copy" shortcut. This is in fact the
+reason that macOS uses "Cmd" instead of "Ctrl" for its UI shortcuts. But, on
+Windows and Linux, the precendence of this shortcut means that you need to use
+"Ctrl-Shift-C" and "Ctrl-Shift-V" for copy-paste into the terminal.)
 
 ## The current working directory
 
+Commands in the command prompt are evaluated in the context of the *present
+working directory*, which roughly defines where to look for any files that the
+command might need. For example, after five rounds of reviews and finally
+acceptance and publication, you might never want to look at that paper again!
+Assuming your file is called `paper.docx`, you can delete it with the command:
+
+````{tabbed} bash
+```
+rm paper.docx
+```
+````
+
+````{tabbed} Command Prompt
+```
+del paper.docx
+```
+````
+
+But for this to work, your *present working directory* needs to be the folder
+in which the file is located. You can find your present working directory at
+any time with the command:
+
+````{tabbed} bash
+```
+pwd
+```
+````
+
+````{tabbed} Command Prompt
+```
+cd
+```
+````
+
+**This is one of the most important concepts about shells.** In fact, it is so
+important that by default, command prompts will print your present working
+directory with each prompt. The `pwd`/`cd` command is there to help you get
+oriented, as well as to print the directory within longer scripts and other
+situations where the prompt may not be visible.
+
+And you can *change* your working directory with the command `cd` (this is one
+of the rare commands that is identical across all shells). For example, when
+you first launch a terminal, your working directory is typically set to your
+*home* or *user* directory, which contains all your other documents and
+personal folders (Documents, Downloads, Desktop, etc). So, after you launch a
+terminal, you can enter the command:
+
+```
+cd Documents
+```
+
+to make Documents your working directory.
+
+To access sub-directories, you can either repeat the command for each
+subdirectory, or you can string them together with the *directory delimiter*,
+which of course is different between Windows, which uses `\`, and macOS/Linux,
+which use '/'. 🤦 So, for example:
+
+````{tabbed} bash
+```
+cd Documents/ThatPaper
+```
+````
+
+````{tabbed} Command Prompt
+```
+cd Documents\ThatPaper
+```
+````
+
+So, so far we have discussed a couple of commands for navigating around your
+file system, as well as a command for deleting files. You are set for some
+spring cleaning but little else! What else can you do?
+
 ## The path
 
+Shells have a small number of built-in commands, but other than these all they
+do is offer access to small bits of software that live in various places on
+your computer. For example, `rm` and `del`, which we saw in the previous section,
+are small software programs. How does the shell know to offer them as commands?
+And what if you have two programs named `rm` in different folders on your
+computer?
 
+The shell decides which program to run by looking at a bit of data called the
+*Path*. The path is simply a list of directories, separated by `:`
+(macOS/Linux) or `;` (Windows). The shell looks inside each of those folders in
+order, and returns the first command it finds matching the name you typed. You
+can find out where it's finding a particular command with `which` (macOS/Linux)
+or `where` (Windows Command Prompt). For example, to find out where the
+`rm`/`del` program is, use:
+
+````{tabbed} bash
+```
+which rm
+```
+````
+
+````{tabbed} Command Prompt
+```
+where del
+```
+````
+
+To find out what your path is, you can use:
+
+````{tabbed} bash
+```
+echo $PATH
+```
+````
+
+````{tabbed} Command Prompt
+```
+set Path
+```
+````
+
+As with the working directory, **the path is an extremely important concept
+about the shell.** A very common error that people encounter is installing a
+new utilitiy (for example, [git](https://git-scm.com)), and then having their
+shell not recognize it, coming back with the error "Command not found". When
+this happens to you, you now know it means one of two things:
+
+- you mistyped the command (shockingly common!)
+- the command is installed, but the *folder* where it was installed is not in
+  your path.
+
+To ensure the shell finds a command, you have two options:
+
+1. Add a *shortcut* to the command 
