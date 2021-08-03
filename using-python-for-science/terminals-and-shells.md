@@ -84,6 +84,66 @@ Additionally, IDEs such as VSCode and PyCharm come with a built-in terminal
 *shells*, such as bash, zsh, and fish. Although recent macOS versions default
 to zsh, we recommend sticking to bash, as it is one of the oldest shells
 (released in 1989!), and most shell commands you find on the internet are
-written for bash rather than zsh or fish.
+written for bash rather than zsh or fish. You can do this by opening a Terminal
+and typing the command:
+
+```shell
+chsh -s /bin/bash
+```
+
+On Windows, the built in terminal is Cmd.exe, but it is extremely primitive:
+Microsoft has prioritized backwards compatibility above all else, with the
+result that Cmd.exe appears stuck in 1995 (if not earlier). Thankfully,
+Microsoft have released a fantastic, modern, open source terminal application
+called Windows Terminal, which you can download from the Microsoft Store.
+
+Remember that terminal *applications* and *shells* are different concepts. In
+this case, Windows Terminal defaults to PowerShell, which is both a shell and a
+programming language and in general horribly complicated! We instead want to
+make Command Prompt the default: go to the "Startup" tab in your settings, and
+select Command Prompt as your default profile.
+
+Once you launch your terminal application, you will be greeted with your
+shell's *prompt*, a sequence of characters followed by a cursor.
+
+````{tabbed} Bash prompt
+```{figure} images/bash-prompt.png
+---
+name: bash-prompt
+---
+Bash prompt on macOS Big Sur.
+```
+````
+
+````{tabbed} Cmd.exe prompt
+```{figure} images/cmd-prompt.png
+---
+name: cmd-prompt
+---
+Command Prompt on Windows Terminal for Windows 10.
+```
+````
+
+Across all operating system, shells operate as a Read, Evaluate, Print Loop, or
+REPL. The shell *reads* text input from the user. When the user presses
+"Enter" or "Return", the shell *evaluates* the text, checks for commands, runs
+them, *prints* any output, and finally *loops* back to the command prompt,
+ready for the next command from the user.
+
+It's important to know that the *evaluate* part can take a long time, and
+although you can still enter text during this phase, the shell is *not*
+listening to you during this time! As an example that you will surely encounter
+in your Python journey, when you launch a Jupyter notebook, you launch a
+long-running process that takes over your terminal until you quit by pressing
+"Ctrl-C", which is a near-universal command for "interrupt" across terminals
+and operating systems. (Yes, in Windows and Linux, this conflicts with the
+"copy" shortcut. This is in fact the reason that macOS uses "Cmd" instead of
+"Ctrl" for its UI shortcuts. But, on Windows and Linux, the precendence of this
+shortcut means that you need to use "Ctrl-Shift-C" and "Ctrl-Shift-V" for
+copy-paste into the terminal.)
+
+## The current working directory
+
+## The path
 
 
