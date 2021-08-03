@@ -210,14 +210,14 @@ type the following code into a cell and run it, what is the output?
 
 ```python
 import sys
-print(sys.version_info())
+print(sys.version_info)
 print(sys.executable)
 ```
 
 ## Working with IDEs
 
 Integrated Development Environments, or IDEs, are text editors that come with
-aditional features to help you quickly evaluate and run your code. Examples of
+additional features to help you quickly evaluate and run your code. Examples of
 IDEs include Visual Studio Code, PyCharm, and Spyder.
 
 In order to help you run your code, IDEs must use a Python executable. But
