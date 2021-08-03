@@ -67,12 +67,12 @@ Having said this, you will find people on the interwebs mixing up all three
 terms, including your authors until recently, when they had to finally
 figure out exact definitions to write this chapter... 😅
 
-In {numref}`figure-terms`, you can see different terminal programs for
-different operating systems running different shells.
+In {numref}`figure-terms`, you can see an example of a terminal called iTerm2
+on macOS running the bash shell.
 
-```{figure} images/terminal-screenshots.png
+```{figure} images/terminal-screenshot.png
 ---
-name: terminal-screenshots
+name: terminal-screenshot
 ---
 Terminals from different operating systems, running various shells.
 ```
@@ -282,4 +282,20 @@ this happens to you, you now know it means one of two things:
 
 To ensure the shell finds a command, you have two options:
 
-1. Add a *shortcut* to the command 
+1. Add a *shortcut* to the command and put it somewhere in your path
+2. Add the location of the command to your path
+
+Roughly speaking, the way tools like Anaconda and Miniconda work is by
+installing Python somewhere in your home directory, and then adding that
+directory to your path.
+
+## Further reading
+
+For a more in-depth look at using the shell, see the Software Carpentry lesson
+for [the Unix shell](http://swcarpentry.github.io/shell-novice/). It only
+covers bash, not the Windows command shell. However, many of the commands have
+equivalents in Windows — see for example [this translation
+guide](https://www.lemoda.net/windows/windows2unix/windows2unix.html): if you
+are on Windows, you can thus translate the entire lesson. It's also possible to
+install a bash shell on Windows (git provides one by default), but we consider
+using bash on Windows to be beyond the scope of this guide.
