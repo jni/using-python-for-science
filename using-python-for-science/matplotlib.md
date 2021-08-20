@@ -148,6 +148,28 @@ of tick labels, the position of tick labels, … Matplotlib's default are pretty
 good for a quick visualization, but for scientific publication figures, you
 will want to modify many of them.
 
+
+#### Introducing some terminology.
+
+Before we dive into making this figure publication-ready, let's first go other
+some Matplotlib terminology.
+
+- The **`Figure`** denotes the whole plot. It can be composed of several
+  subplots. Each plot is holde by an `Axes`, an area where points can be
+  specificed in terms of data coordinates, i.e. `(x, y)`. The `Figure` is
+  typically called `fig`.
+
+- The **`Axes`** is what people typically refer as "a plot." Matplotlib allows
+  a single figure to contain many `Axes`. These can be overlapping, but
+  usually are not. An `Axes` contains all the typical elements a plot has: an
+  x- and y-axis (denoted by `Axis`), x- and y-labels, a title, etc. The `Axes`
+  is typically called `ax`.
+
+- The **`Axis`** (note the difference with the `Axes`) are objects that define
+  the graph limits, the ticks, tick labels, … There are typically two `Axis`
+  per plots/`Axes`: the x-axis and the y-axis. They can be accessed from the
+  the `Axes` object called `ax` with: `ax.xaxis` and `ax.yaxis`.
+
 #### Changing the colors and markers
 
 First, let us give some meaningfulness to this plot. Right now, we see that
@@ -200,3 +222,59 @@ plt.show()
 We are starting to see a pattern in our data. The first component of the PCA
 separates the two genotypes one from the other. The second component captures
 the time-dependency of the data.
+
+#### Setting axes' limits \& scales
+
+Now, we are going to set the scales of the x-axis and y-axis such that they
+are identical. The two axis will thus become much more comparable to one
+another.  This can be done by setting the `aspect` keyword argument of the
+axes to `"equal"`. Here, we show how to set this during construction of the
+subplots.
+
+```{code-cell} python
+fig, ax = plt.subplots(subplot_kw={"aspect": "equal"})
+
+# Create a mask to identify elements from one genotype
+mask_genotype = (meta["Genotype"] == "RT430").values
+
+ax.scatter(X[mask_genotype, 0], X[mask_genotype, 1],
+	   c=[week_colors[m] for m in meta.loc[mask_genotype]["Week"]],
+	   marker=genotype_markers["RT430"])
+ax.scatter(X[~mask_genotype, 0], X[~mask_genotype, 1],
+	   c=[week_colors[m] for m in meta.loc[~mask_genotype]["Week"]],
+	   marker=genotype_markers["BT642"])
+
+
+plt.show()
+
+```
+
+#### Moving the spines
+
+FIXME
+
+```{code-cell} python
+fig, ax = plt.subplots(subplot_kw={"aspect": "equal"})
+
+# Create a mask to identify elements from one genotype
+mask_genotype = (meta["Genotype"] == "RT430").values
+
+ax.scatter(X[mask_genotype, 0], X[mask_genotype, 1],
+	   c=[week_colors[m] for m in meta.loc[mask_genotype]["Week"]],
+	   marker=genotype_markers["RT430"])
+ax.scatter(X[~mask_genotype, 0], X[~mask_genotype, 1],
+	   c=[week_colors[m] for m in meta.loc[~mask_genotype]["Week"]],
+	   marker=genotype_markers["BT642"])
+
+# We effectively start by removing the right and top spines.
+ax.spines["right"].set_linewidth(0)
+ax.spines["top"].set_linewidth(0)
+
+# Now, we set the position of the spines to be at the 0 of the data.
+ax.spines["bottom"].set_position(("data", 0))
+ax.spines["left"].set_position(("data", 0))
+
+plt.show()
+
+```
+
