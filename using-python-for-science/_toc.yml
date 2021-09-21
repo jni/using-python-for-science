@@ -3,16 +3,16 @@
 format: jb-book
 root: book-intro
 chapters:
-- file: terminals-and-shells
+- file: terminals-and-shells  # IN PROGRESS jni
   # Total time: 15 minutes
   # About bash
   # Running python
   # Running ipython
-- file: intro-to-environments
+- file: intro-to-environments  # DONE
   # total time 15 minutes
-- file: editors-and-ides
+- file: editors-and-ides  # TODO jni
   # Total time: 15 minutes
-- file: essential-libraries-for-science
+- file: essential-libraries-for-science  # DONE
   # Total time: 20 minutes split into sections
   #
   # Core libraries: numpy, pandas, scipy
@@ -21,46 +21,46 @@ chapters:
   # Domain specific: scikit-learn, statsmodel, scikit-image, networkx
   # "Things you cannot work without": ipython, linters, debuggers
   sections:
-  - file: numpy
+  - file: numpy  # TODO jni
     # Total time: 4 x 15 minutes?
     # What's a numpy array?
     # Adanced operations
     # Fancy indexing
-  - file: matplotlib
+  - file: matplotlib  # IN PROGRESS nellev
     # Total time: 15 minutes
     # All the time in the world is not enough to explain matplotlib…
-  - file: pandas
+  - file: pandas  # TODO jni
     # Total time: 3 x 15 minutes?
-- file: get-it-working
+- file: get-it-working  # DONE
   sections:
-  - file: understanding-errors
+  - file: understanding-errors  # DONE
     # 10 minutes?
-  - file: debugging
+  - file: debugging  # TODO jni
     # 15 minutes?
-- file: get-it-right
+- file: get-it-right  # TODO
   # I feel it's hard to do testing before packaging
   sections:
-  - file: testing
+  - file: testing  # TODO nellev
     # 15 minutes?
-  - file: continuous-integration
+  - file: continuous-integration  # TODO nellev
     # 15 minutes?
-  - file: reproducibility
+  - file: reproducibility  # TODO nellev
     # 15 minutes
-- file: get-it-fast
+- file: get-it-fast  # TODO abi
   sections:
-  - file: profiling
+  - file: profiling  # TODO abi/nellev
     # 3 x 5 minutes
-  - file: cython
+  - file: cython  # TODO abi
     # 15 minutes
-  - file: parallel-python
+  - file: parallel-python  # TODO jni
     # 2 x 15 minutes? (But how to split it?)
-  - file: numba
+  - file: numba  # TODO nellev
     # 5 minutes
-  - file: gpu-libraries
-- file: ship-it
+  - file: gpu-libraries  # TODO jni
+- file: ship-it  # TODO abi
   sections:
-  - file: packaging-for-pip
+  - file: packaging-for-pip  # TODO abi
     # Total time: 15 minutes
-  - file: packaging-for-conda
+  - file: packaging-for-conda  # TODO nellev
     # No clue, never done that…
-- file: epilogue
+- file: epilogue  # TODO
