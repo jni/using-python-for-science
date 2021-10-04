@@ -209,7 +209,7 @@ incorporating his changes.* If he continues to work on his `decimals` branch,
 their histories will diverge. And if he works on his `main` branch, his
 changes won't be there!
 
-The solution is for him to *pull* the master branch *from Alice's repository*.
+The solution is for him to *pull* the main branch *from Alice's repository*.
 For this, he needs to add it to his list of remotes (remember remotes?):
 
 ```console
@@ -223,7 +223,7 @@ origin	git@github.com:bob/pycalc (push)
 upstream	git@github.com:alice/pycalc (fetch)
 upstream	git@github.com:alice/pycalc (push)
 $ git switch main
-$ git pull upstream main  # get upstream's master branch, and merge
+$ git pull upstream main  # get upstream's main branch, and merge
 $ git push origin main
 ```
 

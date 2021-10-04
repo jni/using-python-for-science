@@ -1,3 +1,5 @@
+# Working with git
+
 In this section, we will get some hands-on experience with the above concepts:
 
  - getting started with git
@@ -112,8 +114,8 @@ git status
 Which should output:
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
@@ -133,8 +135,8 @@ git status
 This should output:
 
 ```
-On branch master
-Your branch is up-to-date with 'origin/master'.
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
@@ -145,7 +147,7 @@ Then, *commit* the changes to the history:
 
 ```console
 $ git commit --message "Initial work on a Python string calculator"
-[master c85a965] Initial work on a Python string calculator
+[main c85a965] Initial work on a Python string calculator
  1 file changed, 12 insertions(+)
  create mode 100644 calc.py
 ```
@@ -206,8 +208,8 @@ def compute(expression):
 As before, we can check the status with `git status`, which should output:
 
 ```
-On branch master
-Your branch is ahead of 'origin/master' by 1 commit.
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
   (use "git push" to publish your local commits)
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
@@ -562,7 +564,7 @@ Let's see how it does this.
 Create a branch to add the multiplication operator:
 
 ```console
-git switch master --create add-multiplication
+git switch main --create add-multiplication
 ```
 
 It's just a matter of adding the following lines:
@@ -586,7 +588,7 @@ git switch main --create add-division
 git commit -a -m "Add support for division operator"
 ```
 
-Finally, bring those changes into the master branch:
+Finally, bring those changes into the main branch:
 
 ```console
 git switch main
