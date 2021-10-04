@@ -16,7 +16,6 @@ chapters:
   sections:
   - file: git-installation-and-setup
   - file: git-linear-history
-  - file: git-branching
   - file: github
 - file: essential-libraries-for-science  # DONE
   # Total time: 20 minutes split into sections

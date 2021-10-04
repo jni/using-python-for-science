@@ -11,7 +11,7 @@ Final.doc](http://www.phdcomics.com/comics/archive/phd101212s.gif)
 
 Your authors certainly have:
 
-![Revision hell](/git-tutorial/images/revhell.png)
+![Revision hell](images/revhell.png)
 
 Notice:
 
