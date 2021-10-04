@@ -9,6 +9,11 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} python
+:tags: ["hide-cell"]
+import matplotlib as mpl
+mpl.rcParams['figure.dpi'] = 500
+```
 
 # Matplotlib
 
@@ -251,7 +256,10 @@ plt.show()
 
 #### Moving the spines
 
-FIXME
+For PCA plots, it's almost always nicer to move the spines so that they cross
+at the (0, 0) coordinate. We will first remove the top and right spines, by
+setting their linewidth to 0, then move the bottom and left splines such that
+they cross at the data coordinate 0.
 
 ```{code-cell} python
 fig, ax = plt.subplots(subplot_kw={"aspect": "equal"})
@@ -275,6 +283,186 @@ ax.spines["bottom"].set_position(("data", 0))
 ax.spines["left"].set_position(("data", 0))
 
 plt.show()
+
+```
+
+#### Setting the final size of the figure
+
+Before diving in anything text related with Matplotlib, it's good practice to
+set the figure size. Indeed, in Matplotlib, the fontsize are in points, and
+not relative to the figure size. The figure size is set in inches. Scientific
+publications are typically on A4 papers, while posters are often A0 or A1.
+Most scientific journals require fontsize no smaller than 8pts.
+
+| Paper	| mm	| inches | 
+| --- | --- | --- |
+|  A0 |	 841 x 1189 mm | 33.1 x 46.8 inches |
+|  A1 |	 594 x 841 mm |	 59.4 x 84.1 cm |  23.4 x 33.1 inches |
+|  A2 |	 420 x 594 mm |	 42 x 59.4 cm | 16.5 x 23.4 inches |
+| A3 |	297 x 420 mm | 11.7 x 16.5 inches |
+| A4 |	210 x 297 mm |	8.3 x 11.7 inches |
+| A5 | 148.5 x 210 mm | 5.8 x 8.3 inches |
+
+Let's assume this figure is for a scientific paper, and meant to be displayed
+half the page (to fit into one of the the very commonly used two-column text).
+Counting for a bit of margin, a figure of 3.5 inches seems thus appropriate.
+
+```{code-cell} python
+fig, ax = plt.subplots(subplot_kw={"aspect": "equal"}, figsize=(3.5, 3.5))
+
+# Create a mask to identify elements from one genotype
+mask_genotype = (meta["Genotype"] == "RT430").values
+
+ax.scatter(X[mask_genotype, 0], X[mask_genotype, 1],
+	   c=[week_colors[m] for m in meta.loc[mask_genotype]["Week"]],
+	   marker=genotype_markers["RT430"])
+ax.scatter(X[~mask_genotype, 0], X[~mask_genotype, 1],
+	   c=[week_colors[m] for m in meta.loc[~mask_genotype]["Week"]],
+	   marker=genotype_markers["BT642"])
+
+# We effectively start by removing the right and top spines.
+ax.spines["right"].set_linewidth(0)
+ax.spines["top"].set_linewidth(0)
+
+# Now, we set the position of the spines to be at the 0 of the data.
+ax.spines["bottom"].set_position(("data", 0))
+ax.spines["left"].set_position(("data", 0))
+
+plt.show()
+
+```
+
+You can see that the figure is smaller than before.
+
+#### Adding x- and y-labels
+
+Let's now set the x-s and y-labels.
+
+```{code-cell} python
+fig, ax = plt.subplots(subplot_kw={"aspect": "equal"}, figsize=(3.5, 3.5))
+
+# Create a mask to identify elements from one genotype
+mask_genotype = (meta["Genotype"] == "RT430").values
+
+ax.scatter(X[mask_genotype, 0], X[mask_genotype, 1],
+	   c=[week_colors[m] for m in meta.loc[mask_genotype]["Week"]],
+	   marker=genotype_markers["RT430"])
+ax.scatter(X[~mask_genotype, 0], X[~mask_genotype, 1],
+	   c=[week_colors[m] for m in meta.loc[~mask_genotype]["Week"]],
+	   marker=genotype_markers["BT642"])
+
+# We effectively start by removing the right and top spines.
+ax.spines["right"].set_linewidth(0)
+ax.spines["top"].set_linewidth(0)
+
+# Now, we set the position of the spines to be at the 0 of the data.
+ax.spines["bottom"].set_position(("data", 0))
+ax.spines["left"].set_position(("data", 0))
+
+# Let's set the x- and y-labels
+ax.set_xlabel("1st component")
+ax.set_ylabel("1st component")
+
+plt.show()
+
+```
+
+The placement of the x- and y-labels is really not satisfying… Ideally, we
+would want them aligned with the spines, but outside of the main figure. There
+isn't any easy way to do this with the functions `set_xlabel` and
+`set_ylabel`. Instead, we are going to do this "manually," through the `text`
+function. First, we retrieve the x- and y-limits, using `get_xlim` and
+`get_ylim`. Then, we compute the the coordinates of the text. Last but not
+least, we need to align the text using the options `horizontalalignment` and
+`verticalalignment` such that they don't overlap at all with the spines.
+And voilà!
+
+
+```{code-cell} python
+fig, ax = plt.subplots(subplot_kw={"aspect": "equal"}, figsize=(3.5, 3.5))
+
+# Create a mask to identify elements from one genotype
+mask_genotype = (meta["Genotype"] == "RT430").values
+
+ax.scatter(X[mask_genotype, 0], X[mask_genotype, 1],
+	   c=[week_colors[m] for m in meta.loc[mask_genotype]["Week"]],
+	   marker=genotype_markers["RT430"])
+ax.scatter(X[~mask_genotype, 0], X[~mask_genotype, 1],
+	   c=[week_colors[m] for m in meta.loc[~mask_genotype]["Week"]],
+	   marker=genotype_markers["BT642"])
+
+# We effectively start by removing the right and top spines.
+ax.spines["right"].set_linewidth(0)
+ax.spines["top"].set_linewidth(0)
+
+# Now, we set the position of the spines to be at the 0 of the data.
+ax.spines["bottom"].set_position(("data", 0))
+ax.spines["left"].set_position(("data", 0))
+
+###############################################################################
+# We can't just use the xlabel and ylabel functions here. We need to compute
+# the coordinates of the text
+
+xlim = ax.get_xlim()
+ylim = ax.get_ylim()
+
+ax.text(0, ylim[0], "1st component", horizontalalignment="center",
+        verticalalignment="top", fontweight="bold", fontsize="small")
+ax.text(xlim[0], 0, "2nd component", verticalalignment="center", rotation=90,
+        horizontalalignment="right", fontweight="bold", fontsize=10)
+
+plt.show()
+
+```
+
+
+
+
+#### Final figure
+
+```{code-cell} python
+from matplotlib import ticker
+fig, ax = plt.subplots(subplot_kw={"aspect": "equal"}, figsize=(3.5, 3.5))
+
+# Create a mask to identify elements from one genotype
+mask_genotype = (meta["Genotype"] == "RT430").values
+
+ax.scatter(X[mask_genotype, 0], X[mask_genotype, 1],
+           c=[week_colors[m] for m in meta.loc[mask_genotype]["Week"]],
+           marker=genotype_markers["RT430"])
+ax.scatter(X[~mask_genotype, 0], X[~mask_genotype, 1],
+           c=[week_colors[m] for m in meta.loc[~mask_genotype]["Week"]],
+           marker=genotype_markers["BT642"])
+
+# We effectively start by removing the right and top spines.
+ax.spines["right"].set_linewidth(0)
+ax.spines["top"].set_linewidth(0)
+
+# Now, we set the position of the spines to be at the 0 of the data.
+ax.spines["bottom"].set_position(("data", 0))
+ax.spines["left"].set_position(("data", 0))
+
+# Now set the axis labels & title
+ax.set_title("Find a meaningful title", fontweight="bold")
+
+###############################################################################
+# We can't just use the xlabel and ylabel functions here. We need to compute
+# the coordinates of the text
+
+xlim = ax.get_xlim()
+ylim = ax.get_ylim()
+
+ax.text(0, ylim[0], "1st component", horizontalalignment="center",
+        verticalalignment="top", fontweight="bold", fontsize="small")
+ax.text(xlim[0], 0, "2nd component", verticalalignment="center", rotation=90,
+        horizontalalignment="right", fontweight="bold", fontsize="small")
+ax.xaxis.set_major_locator(
+    ticker.MultipleLocator(40))
+
+ax.tick_params(labelsize="x-small")
+
+for label in ax.get_xticklabels() + ax.get_yticklabels():
+    label.set_bbox(dict(facecolor='white', edgecolor='None', alpha=0.65 ))
 
 ```
 
