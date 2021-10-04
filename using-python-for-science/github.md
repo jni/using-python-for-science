@@ -49,53 +49,53 @@ left, and the addresses on the right.
 Now, push your local changes back to the origin:
 
 ```console
-$ git push origin master:master
+$ git push origin main:main
 Counting objects: 36, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (36/36), done.
 Writing objects: 100% (36/36), 3.33 KiB | 0 bytes/s, done.
 Total 36 (delta 25), reused 0 (delta 0)
 To git@github.com:jni/pycalc
-   8ab0457..8de6fb7  master -> master
+   8ab0457..8de6fb7  main -> main
 ```
 
-Read the above as "push to "origin" my branch "master" onto its branch
-"master". Branches are managed locally for each repository, so the branch names
+Read the above as "push to "origin" my branch "main" onto its branch
+"main". Branches are managed locally for each repository, so the branch names
 don't actually have to match. That is, we could easily have written:
 
 ```console
-$ git push origin master:other-branch-name
+$ git push origin main:other-branch-name
 ```
 
-and then the contents of our branch `master` locally would be mirrored in the
+and then the contents of our branch `main` locally would be mirrored in the
 remote branch `other-branch-name` on `origin`. In order to tell git to keep
 track of matching branch names, use the option `--set-upstream`:
 
 ```console
-$ git push origin --set-upstream master
+$ git push origin --set-upstream main
 ```
 
-This tells git: "push `master` onto `origin`'s `master`, and note that they are
+This tells git: "push `main` onto `origin`'s `main`, and note that they are
 mirrors of each other." This means that later, we only need to do:
 
 ```console
-$ git push origin
+$ git push
 ```
 
-And git will know that `master` goes onto `origin`'s `master`.
+And git will know that `main` goes onto `origin`'s `main`.
 
 After this, you'll be able to refresh your page on GitHub and
 browse your code's history.
 
 ## Exercise 4: GitHub pull requests
 
-For this exercise you will have to pair up with your neighbour, which
-we will name Alice. (And your name is Bob, in keeping with the computer
-science literature.) Decide now who will be Bob and who will be Alice in the
-pair.
+For this exercise you will have to pair up with a buddy, whom
+we will name Alice. (Your name is Bob, in keeping with the computer
+science literature.) Find a buddy to do this exercise with and decide now who
+will be Bob and who will be Alice in the pair.
 
 As Bob, you should delete your "pycalc" repository on GitHub (this is done
-under "Settings" in the right-hand menu). You've realised that Alice has her
+under "Settings"): you've realised that Alice has her
 own version and that you can both save effort by collaborating on this project.
 
 You've been wanting to do some arithmetic on some data, but the first
@@ -108,6 +108,7 @@ number.
 Navigate to Alice's repository on GitHub
 (https://github.com/[Alice's username]/pycalc), and click the "Fork"
 button.
+
 This will create a copy of Alice's repo on your GitHub account, which
 you can then clone on your machine as before. But note that you need to
 delete your existing work, or git will complain! Instructions below (some of
@@ -119,7 +120,7 @@ $ pwd
 /Users/bob/projects/pycalc
 $ cd ..
 $ rm -rf pycalc
-$ git clone git@github.com:alice/pycalc
+$ git clone git@github.com:bob/pycalc
 $ cd pycalc
 $ git switch --create decimals
 ```
@@ -146,35 +147,36 @@ Here's how this works: you don't know Alice. You probably have never met
 her. So it's natural that you can't just push random stuff willy-nilly to her
 repository. However, you do have a *shared history*, because you *forked* hers,
 and *she* has access to your new changes. So, instead of *pushing* your
-changes, you ask *her* to *pull* from your own history.
+changes, you *request* that she *pulls* from your own history.
 
-The PR will tell Alice that you've made some
+The pull request (PR, from now on) will tell Alice that you've made some
 changes to the code and you would like her to incorporate them into
 her project. Notice that you did this *without needing any special
 access from Alice!* This is the magic of GitHub and open source.
 
 Check out the impact that GitHub has had on a few open source Python projects:
 
-![GitHub's impact on FOSS](/git-tutorial/images/gh.png)
+![GitHub's impact on FOSS](images/gh.png)
 
 Click on the PR button and fill in the form. Filling in a useful
 title and message here is very important!
 
-> ### Pull request etiquette
-> 
-> Make sure your title and description are informative. 99% of the time, when
-> you make a pull request (PR), the person on the other end is very busy, knows
-> no background about the PR and doesn't understand why you made the changes
-> you made. In general, the onus is on the requester to comply with all the
-> repository's formatting guidelines and so forth. By convention, many
-> repositories have a `CONTRIBUTING.txt` file explaining the contribution
-> process. If it's there, be sure to read it before submitting a PR!
-> 
-> When in Rome, do as the Romans do. Look at their existing codebase
-> and try to follow their example. (This is not to say that you can't
-> improve on it; but make sure your documentation and testing *at least*
-> meets their standards.
+```{note}
+**Pull request etiquette**
 
+Make sure your title and description are informative. 99% of the time, when
+you make a pull request (PR), the person on the other end is very busy, knows
+no background about the PR and doesn't understand why you made the changes
+you made. In general, the onus is on the requester to comply with all the
+repository's formatting guidelines and so forth. By convention, many
+repositories have a `CONTRIBUTING.txt` file explaining the contribution
+process. If it's there, be sure to read it before submitting a PR!
+
+When in Rome, do as the Romans do. Look at their existing codebase
+and try to follow their example. (This is not to say that you can't
+improve on it; but make sure your documentation and testing *at least*
+meets their standards.)
+```
 
 Alice should get an email notification that there is a pull request to
 her project. Clicking on it, she will be taken to the web form for the
@@ -195,7 +197,7 @@ $ git push  # no need to specify repo or branch anymore, having `set-upstream`
 ```
 
 If either Bob or Alice go back to the PR page, they will see that the PR has
-been automagically updated with Bob's new changes! (Though they may need to
+been automagically updated with Bob's new changes! (They may need to
 refresh the page.)
 
 Alice, satisfied with the update, can now click on the "Merge pull
@@ -204,7 +206,7 @@ request" button and incorporate Bob's changes to her code!
 One last thing needs to happen to really synchronise everyone's histories.
 Although Alice has Bob's changes, *Bob doesn't have Alice's commit
 incorporating his changes.* If he continues to work on his `decimals` branch,
-their histories will diverge. And if he works on his `master` branch, his
+their histories will diverge. And if he works on his `main` branch, his
 changes won't be there!
 
 The solution is for him to *pull* the master branch *from Alice's repository*.
@@ -220,13 +222,20 @@ origin	git@github.com:bob/pycalc (fetch)
 origin	git@github.com:bob/pycalc (push)
 upstream	git@github.com:alice/pycalc (fetch)
 upstream	git@github.com:alice/pycalc (push)
-$ git switch master
-$ git pull upstream master  # get upstream's master branch, and merge
-$ git push origin master
+$ git switch main
+$ git pull upstream main  # get upstream's master branch, and merge
+$ git push origin main
+```
+
+```{note}
+In 2021, GitHub added a feature to synchronise forks from the web UI directly.
+See [Syncing a
+fork](https://docs.github.com/en/github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)
+on the GitHub help pages.
 ```
 
 Bob can now inspect his history log and see that both his changes and Alice's
-merge are there. Use GitKraken/GitX/GitTower/other GUI for this, or the `lsd`
+merge are there. Use GitKraken/GitTower/other GUI for this, or the `lsd`
 alias we learned earlier, or a simple git-log will also do.
 
 ## Bonus exercise 1: self-PRs and code review
@@ -245,44 +254,3 @@ This practice of requesting code reviews for pull requests, even when you
 control the repository, is universal among programming teams, because it
 dramatically improves the quality of the code. Two pairs of eyes are more than
 twice as effective as one pair.
-
-## Bonus exercise 2: rebasing
-
-Bob thinks testing is a swell idea, and adds a test function at the bottom in
-a branch called `test-2`, and makes a PR.
-
-Meanwhile, Alice herself has also been busy and adds a third test function at
-the bottom of the same file, before merging Bob's PR.
-
-Bob's pull request now shows a greyed out "Merge" button, because there are
-merge conflicts! Unlike before, you don't have access to the history on GitHub,
-so you can't just proceed with the merge and fix the merge conflicts.
-
-The common solution is to *rebase*, that is, to replay the changes on Bob's
-branch on top of the latest `master` from Alice's repository.
-
-```console
-$ git switch master
-$ git pull upstream master
-$ git rebase master test-2
-```
-
-During the rebase, Bob will have merge conflicts. He needs to fix these as
-before, `git add` the file, and then `git rebase --continue` to complete the
-rebase.
-
-Finally, Bob will try to push back to his GitHub account but this will fail.
-(Why?) The solution is to use `git push --force-with-lease`.
-
-## Notes on why you should make your own code open source
-
-- The idea that you will be scooped by someone looking at your code is
-  ludicrous. Reading code is *hard work* and no one will do it on the
-  off chance that there is a Nature paper buried in there.
-- Your own coding habits and practice will improve just by knowing that
-  it's out there. (Shame is a powerful motivator! =P)
-- If someone *does* look at your code and finds it useful, chances are
-  that you will have gained a new collaborator, not a competitor.
-- It is just good scientific practice!
-- See my blog post [Why scientists should code in the open](https://ilovesymposia.com/2015/12/26/why-scientists-should-code-in-the-open/)
-  and Jake Vanderplas's presentation [In defense of extreme openness](https://speakerdeck.com/jakevdp/in-defense-of-extreme-openness).

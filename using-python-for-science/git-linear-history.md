@@ -1,9 +1,3 @@
----
-layout: page
-permalink: working-with-git/
-title: Working with Git
----
-
 In this section, we will get some hands-on experience with the above concepts:
 
  - getting started with git
@@ -25,8 +19,8 @@ email, so that your changes are properly attributed when you commit them to a
 repo:
 
 ```console
-$ git config --global user.name "Your Name"
-$ git config --global user.email "your.name@your.institute.edu"
+git config --global user.name "Your Name"
+git config --global user.email "your.name@your.institute.edu"
 ```
 
 (The `--global` tag means that this configuration should be used for all your
@@ -44,7 +38,8 @@ aid collaboration.
 
 You will learn a bit more about GitHub in later sections, but for now,
 you should create your new project on GitHub, as it offers some nice
-conveniences: addition of a README, a gitignore, and a license.
+conveniences when starting a new project: the addition of a README, a
+gitignore, and a license.
 
 > A quick note on licenses:
 > 
@@ -54,36 +49,35 @@ conveniences: addition of a README, a gitignore, and a license.
 > modifications, and even linking software, to themselves be licensed under
 > GPL-compatible licenses, while MIT and BSD make no such prescriptions.
 > 
-> I'm a big proponent of BSD. Jake Vanderplas, Director of Research at
-> the University of Washington's eScience Institute, has a fantastic
-> [blog post](http://www.astrobetter.com/blog/2014/03/10/the-whys-and-hows-of-licensing-scientific-code/)
+> We're big proponents of BSD. Jake Vanderplas, then Director of Research at
+> the University of Washington's eScience Institute, has a fantastic [blog
+> post](http://www.astrobetter.com/blog/2014/03/10/the-whys-and-hows-of-licensing-scientific-code/)
 > explaining why.
 >
 > Having said that, as Jake says, what's important is that you license
 > your software and use one of the above licenses. Which license you use is
 > a personal choice, not a technical one. A good rule of thumb is, when in
 > Rome, do as the Romans do: if writing scientific Python, use BSD. If
-> writing R packages, use GPL.
+> writing R packages, use either GPL or BSD.
 
 Follow [GitHub's
 instructions](https://help.github.com/articles/creating-a-new-repository)
 to create a new repository called "pycalc", with the description,
-"A function to do simple arithmetic from strings."
+"A module to do simple arithmetic from strings."
 
-Once created, copy the URL from the box in the bottom right, and open
-a terminal window to *clone* the project from GitHub to your local
-machine.
+Once created, copy the **SSH** URL from the box in the top-right, and open a
+terminal window to *clone* the project from GitHub to your local machine.
 
 ```console
-$ git clone git@github.com:<username>/pycalc.git
-$ cd pycalc
+git clone git@github.com:<username>/pycalc.git
+cd pycalc
 ```
 
 You can type `git status` to see that there is a git-tracked project there,
 but nothing to add to the history:
 
 ```console
-$ git status
+git status
 ```
 
 Now you can start working on the project. We are going to create a function
@@ -91,7 +85,7 @@ that takes in strings like '2 + 34' and produce the result, 36.
 
 In your editor, type:
 
-~~~python
+```python
 def compute(expression):
     values = expression.split(' ')
     num0 = int(values[0])
@@ -102,7 +96,7 @@ def compute(expression):
     else:
         print('unknown operator!')
         return 0
-~~~
+```
 
 And save it to a file called `calc.py` in the `pycalc` directory.
 
@@ -112,7 +106,12 @@ This is handy for playing around with external files (e.g. dummy data files)
 that you don't necessarily want to keep for posterity.
 
 ```console
-$ git status
+git status
+```
+
+Which should output:
+
+```
 On branch master
 Your branch is up-to-date with 'origin/master'.
 Untracked files:
@@ -127,8 +126,13 @@ Untracked files:
 Tell git to add the file to its tracking system:
 
 ```console
-$ git add calc.py
-$ git status
+git add calc.py
+git status
+```
+
+This should output:
+
+```
 On branch master
 Your branch is up-to-date with 'origin/master'.
 Changes to be committed:
@@ -151,19 +155,22 @@ changes you made and *why* you made them. The message should be readable
 without (much) context.
 
 You may want to enter a much longer message (one or two paragraphs). For that,
-you will need to *set up a git editor* (instructions
-[here](https://help.github.com/articles/associating-text-editors-with-git/))
-and type just `git commit`.
+it is convenient to *set up a git editor*. You can find instructions for doing
+that in GitHub's documentation page [Associating Text Editors with
+Git](https://help.github.com/articles/associating-text-editors-with-git/)).
+Once you have configured a git text editor, you can just type `git commit`, and
+git will launch your text editor so you can write your commit message.
 
-### An aside on style
+```{note}
+**An aside on commit messages**
 
-A bugbear of mine and others': messages should be in the present imperative.
-“Fix bug X”, “Add feature Y”, “Document function Z”, rather than past (Fixed,
-Added, Documented) or present (Fixes, Adds, Documents). This meshes with git’s
-automatic commit messages, e.g. "Merge branch A from repository B". Find more
-information about conventions to follow in git log messages
-[here](http://365git.tumblr.com/post/3308646748/writing-git-commit-messages).
-If you don't, Linus Torvalds will come after you and your family.
+A bugbear of ours and others': messages should be in the present imperative.
+“Fix bug X”, “Add feature Y”, “Document function Z”, rather than past tense
+("Fixed", "Added", "Documented") or present tense ("Fixes", "Adds",
+"Documents"). The present imperative meshes with git’s automatic commit
+messages, e.g. "Merge branch A from repository B". Find more information about
+conventions to follow in git log messages
+[in this page](http://365git.tumblr.com/post/3308646748/writing-git-commit-messages).
 
 In addition to the above English style guidelines, two other conventions are
 followed in the community:
@@ -174,18 +181,16 @@ followed in the community:
 > should be separated from the one-line summary by a blank line, and
 > should be wrapped at 72 characters. This ensures readability in all
 > text terminals.
+```
 
-### ... back to the exercise
+Let's continue to improve our code. We shouldn't return 0 on error, because it
+can be confused with a perfectly valid result. Instead, Python provides a handy
+value for missing or invalid data: `None`.
 
-We shouldn't return 0 on error, because it can be confused with a perfectly
-valid result. Instead, Python provides a handy value for missing or invalid
-data:
-`None`.
+You should edit your file so that, if the operator is not recognised, it
+returns `None` instead of 0.
 
-Edit your file so that, if the operator is not recognised, it returns `None`
-instead of 0.
-
-~~~python
+```python
 def compute(expression):
     values = expression.split(' ')
     num0 = int(values[0])
@@ -196,12 +201,11 @@ def compute(expression):
     else:
         print('unknown operator!')
         return None
-~~~
+```
 
-As before, we can check the status:
+As before, we can check the status with `git status`, which should output:
 
-```console
-$ git status
+```
 On branch master
 Your branch is ahead of 'origin/master' by 1 commit.
   (use "git push" to publish your local commits)
@@ -236,14 +240,14 @@ makeup walking in and ruining the picture because you used `-a`! Try
 to stage things manually, or you might find yourself searching for
 "git undo commit" more than you would like!
 
-Ok let's just commit everything now. =P
+Ok let's just commit everything now.
 
 BUT FIRST! Let's actually check that "everything" is what we want. In
 addition to the one-line, "files changed" summary that we've seen, we can
-ask git for a line-by-line summary of changes:
+ask git for a line-by-line summary of changes by typing `git diff`, which
+should output something like the following:
 
-```console
- $ git diff
+```
 diff --git a/calc.py b/calc.py
 index ffadff3..012d92a 100644
 --- a/calc.py
@@ -270,7 +274,7 @@ $ git commit --all --message "Return None, not 0, on invalid input"
 
 Finally, let's add support for subtraction:
 
-~~~python
+```python
 def compute(expression):
     values = expression.split(' ')
     num0 = int(values[0])
@@ -283,22 +287,22 @@ def compute(expression):
     else:
         print('unknown operator!')
         return None
-~~~
+```
 
 Let's commit the changes:
 
 ```console
-$ git add calc.py
-$ git commit -m "Add support for subtraction"
+git add calc.py
+git commit -m "Add support for subtraction"
 ```
 
 (`-m` is a shortcut for `--message`.)
 
-You now have a *history* that you can look at and interact with:
+We now have a *history* that you can look at and interact with:
 
 ```console
 $ git log
-commit a4e5f6d6c9bd5dbcad86b4c5269b9c1995a1f321 (HEAD -> master)
+commit a4e5f6d6c9bd5dbcad86b4c5269b9c1995a1f321 (HEAD -> main)
 Author: Juan Nunez-Iglesias <juan.nunez-iglesias@monash.edu>
 Date:   Tue Dec 10 16:21:35 2019 +1100
 
@@ -318,10 +322,16 @@ Date:   Tue Dec 10 16:14:24 2019 +1100
 ```
 
 You can *check out* earlier versions of your code using the hash of
-a particular snapshot, like so:
+a particular snapshot, like so (note: you should use the hash from your own
+`git log` output, which will be different from ours):
 
 ```console
-$ git checkout 18b68bcab248b571e4c4264c43b013c1cedbd7d5
+git checkout 18b68bcab248b571e4c4264c43b013c1cedbd7d5
+```
+
+Which will output:
+
+```
 Note: switching to '18b68bcab248b571e4c4264c43b013c1cedbd7d5'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
@@ -342,11 +352,15 @@ Turn off this advice by setting config variable advice.detachedHead to false
 HEAD is now at 18b68bc Return None, not 0, on invalid input
 ```
 
-You can verify that the file in your directory is now the older
-version:
+"detached HEAD" is actually not as bad as it sounds! If we go back to the
+analogy of git as a time machine, this means that we can just *observe* the
+past: any changes we make will not be recorded, and will have no effect on any
+timeline.
 
-```console
-$ cat calc.py
+You can verify that the file in your directory is now the older
+version. It should have the following contents:
+
+```python
 def compute(expression):
     values = expression.split(' ')
     num0 = int(values[0])
@@ -359,44 +373,49 @@ def compute(expression):
         return None
 ```
 
-> Note: you can use just the first few digits of the hash when checking
-> out a specific revision:
-> 
-> ```console
-> $ git checkout f817c
-> Previous HEAD position was 18b68bc Return None, not 0, on invalid input
-> HEAD is now at f817c9a Initial work on a Python string calculator
-> ```
-
-Thankfully, it's easy to go back to the latest version:
+````{note}
+Note: you can use just the first few digits of the hash when checking
+out a specific revision:
 
 ```console
-$ git switch master
+git checkout f817c
+```
+```
+Previous HEAD position was 18b68bc Return None, not 0, on invalid input
+HEAD is now at f817c9a Initial work on a Python string calculator
+```
+````
+
+It's easy to go back to the latest version, the "present" part of the timeline:
+
+```console
+$ git switch main
 Previous HEAD position was c0a11b0... Initial work on a Python string calculator
-Switched to branch 'master'
+Switched to branch 'main'
 ```
 
 ## Exercise 2: branches
 
 Now we will undertake a major change to the structure of the function.
 Because it's such a big
-change, you want to work in a different _branch_ from "master", so that
+change, you want to work in a different _branch_ from "main", so that
 you can keep using that one while fixing up the new stuff. In practice,
 almost _every_ change is significant enough to warrant a new branch,
 because "sprouting" one is cheap and easy.
 
+In the time machine analogy, we are creating a parallel universe in which to
+change things, without affecting the main timeline.
+
 ```console
-$ git switch --create use-unpacking
+git switch --create use-unpacking
 ```
 
 You should read that as: switch into a *new* branch
 called `use-unpacking`.
-(Note: if using a git version older than 2.23.0, you should use `git checkout
---branch use-unpacking`.)
 
 Now let's use *iterable unpacking* to get the values from our string:
 
-~~~python
+```python
 def compute(expression):
     num0, operator, num1 = expression.split(' ')
     if operator == '+':
@@ -406,13 +425,13 @@ def compute(expression):
     else:
         print('unknown operator!')
         return None
-~~~
+```
 
-Commit that change:
+And let's commit that change:
 
 ```console
-$ git add calc.py
-$ git commit -m "Use fancy-schmancy iterable unpacking"
+git add calc.py
+git commit -m "Use fancy-schmancy iterable unpacking"
 ```
 
 ... Oops! It looks like we've broken our function!
@@ -428,7 +447,7 @@ to debug. Plus, she has no patience for broken software! Or
 functions without documentation! Let's go back to our working version:
 
 ```console
-$ git switch master
+git switch main
 ```
 
 And edit the file to add an informative comment above the function
@@ -454,17 +473,22 @@ def compute(expression):
 We can commit those changes:
 
 ```console
-$ git commit -a -m "Add function documentation"
-[master ef26741] Add function documentation
+git commit -a -m "Add function documentation"
+```
+
+Which outputs:
+
+```
+[main ef26741] Add function documentation
  1 file changed, 2 insertions(+)
 ```
 
-Whew! Now we have that working version (the master branch should always
-work!), with documentation, we can send it to our supervisor and go back to
-fixing our fancy iterable-unpacking version.
+Whew! Now we have that working version (you should make sure that the main
+branch always works!), with documentation, we can send it to our supervisor and
+go back to fixing our fancy iterable-unpacking version.
 
 ```console
-$ git switch use-unpacking
+git switch use-unpacking
 ```
 
 Now, more calmly, we see than in our rush to implement unpacking, we've
@@ -493,14 +517,14 @@ And we commit it:
 
 Now your `use-unpacking` branch is ready to become the main
 branch of your program. But you also don't want to throw out the documentation
-changes you made on the master branch!
+changes you made on the main branch!
 
 `git merge` can often automatically reconcile changes in two branched
 histories:
 
 ```console
- $ git switch master
-Switched to branch 'master'
+ $ git switch main
+Switched to branch 'main'
 
  $ git merge use-unpacking
 Auto-merging calc.py
@@ -538,7 +562,7 @@ Let's see how it does this.
 Create a branch to add the multiplication operator:
 
 ```console
-$ git switch master --create add-multiplication
+git switch master --create add-multiplication
 ```
 
 It's just a matter of adding the following lines:
@@ -551,23 +575,23 @@ It's just a matter of adding the following lines:
 Commit that change:
 
 ```console
-$ git commit -a -m "Add support for multiplication operator"
+git commit -a -m "Add support for multiplication operator"
 ```
 
 Now, repeat the same procedure, including the new branch, for division:
 
 ```console
-$ git switch master --create add-division
+git switch main --create add-division
 # ... make changes to python file...
-$ git commit -a -m "Add support for division operator"
+git commit -a -m "Add support for division operator"
 ```
 
 Finally, bring those changes into the master branch:
 
 ```console
-$ git switch master
-$ git merge add-multiplication
-$ git merge add-division
+git switch main
+git merge add-multiplication
+git merge add-division
 ```
 
 At this point git will, to use a technical term, *chuck a hissy fit*, and
@@ -579,14 +603,18 @@ CONFLICT (content): Merge conflict in calc.py
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-Note: git error messages can be scary, but it's worth taking the time to read
+```{note}
+**Read error messages carefully!**
+
+git error messages can be scary, but it's worth taking the time to read
 them carefully. They often provide the solution to the current problem.
+```
 
 In this case, we must go into the file and manually fix the conflicting
 changes. Git places markers on the file where it has found conflicts,
 so you can quickly identify those locations and decide on a fix:
 
-~~~
+```python
 # Perform simple arithmetic encoded in an input string:
 # '1 + 2' -> 3, or '1 - 2' -> -1.
 def compute(expression):
@@ -606,22 +634,22 @@ def compute(expression):
     else:
         print('unknown operator!')
         return None
-~~~
+```
 
 Git is saying that in the current branch ("HEAD"), the file at that
 position contains the multiplication lines, while the
 `add-division` branch, which we are trying to merge, contains the division
 lines *at the very same spot*.
 
-You fix merge conflicts by navigating to the `<<<<<<<` markers, comparing
+You fix merge conflicts by navigating to the `=======` markers, comparing
 the two conflicting versions, and leaving the file as you want it to be
 committed: removing the markers, and combining the changes in a way
-that makes sense, and that a system like git can't figure out by itself.
+that makes sense, which a system like git can't figure out by itself.
 
 In this case, we simply remove all the markers, and leave the two line pairs
 one after the other inside the file.
 
-~~~python
+```python
 # Perform simple arithmetic encoded in an input string:
 # '1 + 2' -> 3, or '1 - 2' -> -1.
 def compute(expression):
@@ -638,7 +666,7 @@ def compute(expression):
     else:
         print('unknown operator!')
         return None
-~~~
+```
 
 Finally, tell git you've fixed the problem by `git add`ing the file,
 commit, and the merge will complete!
@@ -649,11 +677,11 @@ $ git commit
 ```
 
 You can check that the history of our project using our created alias, `git
-lsd`. (See the set up chapter.)
+lsd`. (See {doc}`git-installation-and-setup` if `git lsd` doesn't work for you.)
 
-```
- $ git lsd
-*   96b6056 (HEAD -> master) Merge branch 'add-division'
+```console
+$ git lsd
+*   96b6056 (HEAD -> main) Merge branch 'add-division'
 |\
 | * f07a196 (add-division) Add support for division operator
 * | 81d75fc (add-multiplication) Add support for multiplication operator
@@ -668,12 +696,3 @@ lsd`. (See the set up chapter.)
 * 18b68bc Return None, not 0, on invalid input
 * f817c9a Initial work on a Python string calculator
 ```
-
-## Challenge: Style guides
-
-When in Rome, do as the Romans do. In the case of Python, the community has
-converged on some prescriptive coding styles. The two main authoritative style
-guides are [PEP8](https://www.python.org/dev/peps/pep-0008/) (for syntax) and
-[PEP257](https://www.python.org/dev/peps/pep-0257/) (for documentation). Can
-you change your function's documentation to match the recommendations of
-PEP257?
