@@ -31,6 +31,12 @@ chapters:
     # All the time in the world is not enough to explain matplotlib…
   - file: pandas  # TODO jni
     # Total time: 3 x 15 minutes?
+- file: ship-it  # TODO abi
+  sections:
+  - file: packaging-for-pip  # TODO abi
+    # Total time: 15 minutes
+  - file: packaging-for-conda  # TODO nellev
+    # No clue, never done that…
 - file: get-it-working  # DONE
   sections:
   - file: understanding-errors  # DONE
@@ -38,7 +44,6 @@ chapters:
   - file: debugging  # TODO jni
     # 15 minutes?
 - file: get-it-right  # TODO
-  # I feel it's hard to do testing before packaging
   sections:
   - file: testing  # TODO nellev
     # 15 minutes?
@@ -57,10 +62,4 @@ chapters:
   - file: numba  # TODO nellev
     # 5 minutes
   - file: gpu-libraries  # TODO jni
-- file: ship-it  # TODO abi
-  sections:
-  - file: packaging-for-pip  # TODO abi
-    # Total time: 15 minutes
-  - file: packaging-for-conda  # TODO nellev
-    # No clue, never done that…
 - file: epilogue  # TODO
