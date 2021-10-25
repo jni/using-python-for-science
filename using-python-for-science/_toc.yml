@@ -12,6 +12,11 @@ chapters:
   # total time 15 minutes
 - file: editors-and-ides  # TODO jni
   # Total time: 15 minutes
+- file: git-and-github
+  sections:
+  - file: git-installation-and-setup
+  - file: git-working
+  - file: github
 - file: essential-libraries-for-science  # DONE
   # Total time: 20 minutes split into sections
   #
